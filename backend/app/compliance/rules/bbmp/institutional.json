@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "authority": "BBMP",
+    "bye_laws": "2003",
+    "building_type": "Institutional",
+    "file": "institutional",
+    "version": "2.0.0",
+    "description": "BBMP Building Bye-Laws 2003 — Rules applicable to Institutional & Educational / Healthcare Buildings"
+  },
+  "rules": [
+    {
+      "rule_id": "BBMP-INS-P001",
+      "title": "Minimum Plot Area for Institutional Use",
+      "category": "Plot Validation",
+      "building_types": ["institutional", "public_semi_public"],
+      "authority": "BBMP",
+      "bye_law_reference": "BBMP Bye-Laws 2003, Clause 7.6",
+      "page_number": 34,
+      "table_reference": "Table 7",
+      "required_inputs": ["plot_area"],
+      "field": "plot_area",
+      "operator": "gte",
+      "expected_value": 500.0,
+      "unit": "sqm",
+      "severity": "error",
+      "priority": 1,
+      "conditions": [],
+      "formula": null,
+      "error_message": "Plot area {actual} sqm is below the minimum {expected} sqm required for institutional buildings.",
+      "recommendation": "Institutional developments require at least 500 sqm plot area to accommodate public gathering space.",
+      "explanation": "Schools, hospitals, and public facilities require significant open ground area for safety and assembly."
+    },
+    {
+      "rule_id": "BBMP-INS-R001",
+      "title": "Minimum Abutting Road Width for Institutional",
+      "category": "Road Access",
+      "building_types": ["institutional", "public_semi_public"],
+      "authority": "BBMP",
+      "bye_law_reference": "BBMP Bye-Laws 2003, Clause 8.1",
+      "page_number": 22,
+      "table_reference": "Table 2",
+      "required_inputs": ["road_width"],
+      "field": "road_width",
+      "operator": "gte",
+      "expected_value": 12.0,
+      "unit": "m",
+      "severity": "error",
+      "priority": 1,
+      "conditions": [],
+      "formula": null,
+      "error_message": "Abutting road width {actual} m is below minimum {expected} m for institutional access.",
+      "recommendation": "Provide at least 12.0 m road width for emergency vehicle access and student/patient transport.",
+      "explanation": "Ensures buses, ambulances, and emergency vehicles have unrestricted access."
+    }
+  ]
+}

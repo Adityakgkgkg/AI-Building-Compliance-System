@@ -85,6 +85,54 @@ export interface AIRecommendation {
   confidence?: number;
 }
 
+// ── IFC Parser — Module 1 ──────────────────────────────────────
+export interface UploadIFCResponse {
+  file_id: string;
+  filename: string;
+  status: string;
+}
+
+export interface ParserBuildingInfo {
+  project_name: string | null;
+  building_name: string | null;
+  site_name: string | null;
+  description: string | null;
+  ifc_schema: string | null;
+  storeys: number;
+  units: string | null;
+  owner: string | null;
+}
+
+export interface ParserElementCounts {
+  walls: number;
+  doors: number;
+  windows: number;
+  slabs: number;
+  columns: number;
+  beams: number;
+  roofs: number;
+  stairs: number;
+  spaces: number;
+  openings: number;
+}
+
+export interface ParserGeometry {
+  gross_floor_area: number | null;
+  height: number | null;
+  storey_heights: number[] | null;
+  footprint: number | null;
+  bounding_box: {
+    min_x: number; min_y: number; min_z: number;
+    max_x: number; max_y: number; max_z: number;
+  } | null;
+}
+
+export interface ParseResult {
+  building: ParserBuildingInfo;
+  elements: ParserElementCounts;
+  geometry: ParserGeometry;
+}
+
 // ── API Error ───────────────────────────────────────────────────
 export interface APIError {
   detail: string;

@@ -5,3 +5,10 @@ sqlalchemy==2.0.35
 python-multipart==0.0.12
 pydantic==2.9.2
 pydantic-settings==2.5.2
+
+# Module 1: IFC Parser
+ifcopenshell
+
+# Testing
+pytest>=8.3
+httpx>=0.27

@@ -18,6 +18,7 @@ from fastapi.responses import JSONResponse
 from app.core.config import get_settings
 from app.core.database import init_db
 from app.api.v1 import router as v1_router
+import app.models  # noqa: F401 — registers all ORM models with SQLAlchemy Base
 
 settings = get_settings()
 
@@ -27,13 +28,13 @@ settings = get_settings()
 async def lifespan(app: FastAPI):
     """Application startup and shutdown lifecycle."""
     # Startup
-    print(f"🚀 Starting {settings.APP_NAME} v{settings.APP_VERSION}")
+    print(f"[START] {settings.APP_NAME} v{settings.APP_VERSION}")
     init_db()
     settings.upload_path  # Ensure upload directory exists
-    print(f"📁 Upload directory: {settings.upload_path.resolve()}")
+    print(f"[DIR] Upload directory: {settings.upload_path.resolve()}")
     yield
     # Shutdown
-    print("👋 Shutting down...")
+    print("[STOP] Shutting down...")
 
 
 # ── App ──────────────────────────────────────────────────────────

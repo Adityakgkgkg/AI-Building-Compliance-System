@@ -6,7 +6,7 @@
  */
 
 import axios, { AxiosError } from "axios";
-import type { UploadResponse, HealthResponse, APIError } from "@/types";
+import type { UploadResponse, HealthResponse, APIError, UploadIFCResponse, ParseResult } from "@/types";
 
 // ── Axios Instance ──────────────────────────────────────────────
 const api = axios.create({
@@ -69,6 +69,39 @@ export async function uploadFile(
     },
   });
 
+  return response.data;
+}
+
+// ── Module 1: IFC Parser API ─────────────────────────────────
+
+/**
+ * Upload an IFC file to the parser endpoint.
+ * Returns a file_id UUID for subsequent parse calls.
+ */
+export async function uploadIFC(
+  file: File,
+  onProgress?: (progress: number) => void
+): Promise<UploadIFCResponse> {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const response = await api.post<UploadIFCResponse>("/parser/upload", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+    onUploadProgress: (evt) => {
+      if (evt.total && onProgress) {
+        onProgress(Math.round((evt.loaded * 100) / evt.total));
+      }
+    },
+  });
+  return response.data;
+}
+
+/**
+ * Parse a previously uploaded IFC file.
+ * Returns the full ParseResult JSON contract.
+ */
+export async function parseIFC(fileId: string): Promise<ParseResult> {
+  const response = await api.post<ParseResult>(`/parser/parse/${fileId}`);
   return response.data;
 }
 

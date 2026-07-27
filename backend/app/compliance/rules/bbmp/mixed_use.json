@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "authority": "BBMP",
+    "bye_laws": "2003",
+    "building_type": "Mixed Use",
+    "file": "mixed_use",
+    "version": "2.0.0",
+    "description": "BBMP Building Bye-Laws 2003 — Rules applicable to Mixed-Use Buildings (Ground Commercial + Upper Residential)"
+  },
+  "rules": [
+    {
+      "rule_id": "BBMP-MIX-P001",
+      "title": "Minimum Plot Area for Mixed Use",
+      "category": "Plot Validation",
+      "building_types": ["mixed_use"],
+      "authority": "BBMP",
+      "bye_law_reference": "BBMP Bye-Laws 2003, Clause 7.7",
+      "page_number": 36,
+      "table_reference": "Table 8",
+      "required_inputs": ["plot_area"],
+      "field": "plot_area",
+      "operator": "gte",
+      "expected_value": 200.0,
+      "unit": "sqm",
+      "severity": "error",
+      "priority": 1,
+      "conditions": [],
+      "formula": null,
+      "error_message": "Plot area {actual} sqm is below the minimum {expected} sqm required for mixed-use developments.",
+      "recommendation": "Mixed-use developments require at least 200 sqm to accommodate dual commercial and residential requirements.",
+      "explanation": "Mixed-use developments require adequate plot area to segregate commercial and residential entry points and parking."
+    },
+    {
+      "rule_id": "BBMP-MIX-R001",
+      "title": "Minimum Road Width for Mixed Use",
+      "category": "Road Access",
+      "building_types": ["mixed_use"],
+      "authority": "BBMP",
+      "bye_law_reference": "BBMP Bye-Laws 2003, Clause 8.1",
+      "page_number": 22,
+      "table_reference": "Table 2",
+      "required_inputs": ["road_width"],
+      "field": "road_width",
+      "operator": "gte",
+      "expected_value": 12.0,
+      "unit": "m",
+      "severity": "error",
+      "priority": 1,
+      "conditions": [],
+      "formula": null,
+      "error_message": "Abutting road width {actual} m is below minimum {expected} m for mixed-use access.",
+      "recommendation": "Provide at least 12.0 m road width for commercial customer and resident vehicular access.",
+      "explanation": "Ensures traffic flow and parking queue clearance on public roads."
+    }
+  ]
+}

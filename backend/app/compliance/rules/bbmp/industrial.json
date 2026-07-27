@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "authority": "BBMP",
+    "bye_laws": "2003",
+    "building_type": "Industrial",
+    "file": "industrial",
+    "version": "2.0.0",
+    "description": "BBMP Building Bye-Laws 2003 — Rules applicable to Industrial Buildings (Factories, Warehouses, Workshops)"
+  },
+  "rules": [
+    {
+      "rule_id": "BBMP-IND-P001",
+      "title": "Minimum Plot Area for Industrial Use",
+      "category": "Plot Validation",
+      "building_types": ["industrial"],
+      "authority": "BBMP",
+      "bye_law_reference": "BBMP Bye-Laws 2003, Clause 7.5",
+      "page_number": 32,
+      "table_reference": "Table 6",
+      "required_inputs": ["plot_area"],
+      "field": "plot_area",
+      "operator": "gte",
+      "expected_value": 300.0,
+      "unit": "sqm",
+      "severity": "error",
+      "priority": 1,
+      "conditions": [],
+      "formula": null,
+      "error_message": "Plot area {actual} sqm is below the minimum {expected} sqm required for industrial buildings.",
+      "recommendation": "Industrial developments require at least 300 sqm plot area for operational safety.",
+      "explanation": "Industrial activities need larger plots to provide adequate setbacks, loading bays, and safety buffers."
+    },
+    {
+      "rule_id": "BBMP-IND-R001",
+      "title": "Minimum Road Width for Industrial Access",
+      "category": "Road Access",
+      "building_types": ["industrial"],
+      "authority": "BBMP",
+      "bye_law_reference": "BBMP Bye-Laws 2003, Clause 8.1",
+      "page_number": 22,
+      "table_reference": "Table 2",
+      "required_inputs": ["road_width"],
+      "field": "road_width",
+      "operator": "gte",
+      "expected_value": 15.0,
+      "unit": "m",
+      "severity": "error",
+      "priority": 1,
+      "conditions": [],
+      "formula": null,
+      "error_message": "Abutting road width {actual} m is below the minimum {expected} m required for heavy industrial vehicle movement.",
+      "recommendation": "Industrial developments require a minimum road width of 15.0 m to accommodate trucks and heavy machinery.",
+      "explanation": "Heavy vehicular movement and freight transport require wide access roads."
+    }
+  ]
+}

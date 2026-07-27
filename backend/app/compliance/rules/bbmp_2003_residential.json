@@ -1,0 +1,502 @@
+{
+  "_meta": {
+    "authority": "BBMP",
+    "bye_laws": "2003",
+    "building_type": "Residential",
+    "version": "1.0.0",
+    "description": "Bruhat Bengaluru Mahanagara Palike Building Bye-Laws 2003 — Residential Rules",
+    "last_updated": "2026-07-26",
+    "total_rules": 28
+  },
+  "rules": [
+    {
+      "rule_id": "BBMP-RES-P001",
+      "title": "Minimum Plot Area",
+      "category": "Plot Validation",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "plot_area", "source": "building_params"}],
+      "operator": "gte",
+      "expected_value": 50.0,
+      "unit": "sqm",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 1, Clause 3.1",
+      "message": "Plot area of {actual} sqm is below the minimum permissible area of {expected} sqm for residential use.",
+      "explanation": "BBMP mandates a minimum plot area of 50 sq.m for residential constructions to ensure adequate space for the building envelope, setbacks, and open areas.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-P002",
+      "title": "Minimum Plot Width",
+      "category": "Plot Validation",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "plot_width", "source": "building_params"}],
+      "operator": "gte",
+      "expected_value": 4.5,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 1, Clause 3.2",
+      "message": "Plot width of {actual} m is below the minimum permissible width of {expected} m.",
+      "explanation": "A minimum plot width of 4.5 m is required to allow proper access, front setback, and structural integrity of the building.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-P003",
+      "title": "Minimum Plot Depth",
+      "category": "Plot Validation",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "plot_depth", "source": "building_params"}],
+      "operator": "gte",
+      "expected_value": 9.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 1, Clause 3.3",
+      "message": "Plot depth of {actual} m is below the minimum permissible depth of {expected} m.",
+      "explanation": "A minimum plot depth of 9 m ensures sufficient depth for habitable spaces, rear setbacks, and utilities.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-G001",
+      "title": "Maximum Building Height (G+3)",
+      "category": "Building Geometry",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "height", "source": "geometry"},
+        {"field": "storeys", "source": "building_params", "lt": 5}
+      ],
+      "operator": "lte",
+      "expected_value": 15.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 4.1",
+      "message": "Building height of {actual} m exceeds the maximum permissible height of {expected} m for G+3 residential buildings.",
+      "explanation": "For residential buildings up to G+3 (ground + 3 floors), the maximum height is 15 m as measured from the average road level to the highest point of the structure.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-G002",
+      "title": "Maximum Number of Storeys (Standard Residential)",
+      "category": "Building Geometry",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "storeys", "source": "building"}],
+      "operator": "lte",
+      "expected_value": 4,
+      "unit": "storeys",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 4.2",
+      "message": "Building has {actual} storeys, exceeding the maximum of {expected} storeys (G+3) for standard residential buildings.",
+      "explanation": "Standard residential buildings in BBMP jurisdiction are restricted to a maximum of G+3 (4 storeys including ground floor) without qualifying as a high-rise, which requires additional road width and setback provisions.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-G003",
+      "title": "Minimum Floor-to-Floor Height",
+      "category": "Building Geometry",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "storey_heights", "source": "geometry", "check": "all_gte"}],
+      "operator": "all_gte",
+      "expected_value": 2.75,
+      "unit": "m",
+      "severity": "warning",
+      "source": "BBMP Building Bye-Laws 2003, Clause 4.3",
+      "message": "One or more floors have height below the minimum permissible {expected} m.",
+      "explanation": "All habitable floors must maintain a minimum clear height of 2.75 m for adequate natural ventilation and habitability.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-G004",
+      "title": "High-Rise Eligibility — Minimum Road Width",
+      "category": "Building Geometry",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "storeys", "source": "building", "gt": 4},
+        {"field": "road_width", "source": "building_params"}
+      ],
+      "operator": "gte",
+      "expected_value": 12.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 4.4, Table 5",
+      "message": "Buildings above G+3 (high-rise) require a minimum abutting road width of {expected} m; actual road width is {actual} m.",
+      "explanation": "Residential buildings exceeding 4 storeys are classified as high-rise and require a minimum 12 m wide road for emergency vehicle access and adequate approach.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-S001",
+      "title": "Front Setback — Road Width 6m to 9m",
+      "category": "Setbacks",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "front_setback", "source": "building_params"},
+        {"field": "road_width", "source": "building_params", "range": [6.0, 9.0]}
+      ],
+      "operator": "gte",
+      "expected_value": 1.5,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 2, Clause 5.1",
+      "message": "Front setback of {actual} m does not meet the minimum of {expected} m for roads of 6–9 m width.",
+      "explanation": "For plots abutting roads of 6–9 m width, a minimum front setback of 1.5 m is mandatory to allow street widening, footpath, and service lines.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-S002",
+      "title": "Front Setback — Road Width Above 9m",
+      "category": "Setbacks",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "front_setback", "source": "building_params"},
+        {"field": "road_width", "source": "building_params", "gt": 9.0}
+      ],
+      "operator": "gte",
+      "expected_value": 3.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 2, Clause 5.1",
+      "message": "Front setback of {actual} m does not meet the minimum of {expected} m for roads above 9 m width.",
+      "explanation": "For plots abutting roads wider than 9 m, a minimum front setback of 3 m is required for road-side landscaping, utility services, and future road widening.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-S003",
+      "title": "Rear Setback — Standard Plot",
+      "category": "Setbacks",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "rear_setback", "source": "building_params"},
+        {"field": "plot_area", "source": "building_params", "lte": 300.0}
+      ],
+      "operator": "gte",
+      "expected_value": 1.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 3, Clause 5.2",
+      "message": "Rear setback of {actual} m does not meet the minimum of {expected} m.",
+      "explanation": "A rear setback of at least 1 m is required for light, ventilation, maintenance access, and to prevent building too close to the rear boundary.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-S004",
+      "title": "Rear Setback — Larger Plot (>300 sqm)",
+      "category": "Setbacks",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "rear_setback", "source": "building_params"},
+        {"field": "plot_area", "source": "building_params", "gt": 300.0}
+      ],
+      "operator": "gte",
+      "expected_value": 2.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 3, Clause 5.2",
+      "message": "Rear setback of {actual} m does not meet the minimum of {expected} m for plots exceeding 300 sqm.",
+      "explanation": "For larger plots exceeding 300 sq.m, the rear setback increases to 2 m to provide proportionate open space and privacy.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-S005",
+      "title": "Left Side Setback",
+      "category": "Setbacks",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "left_setback", "source": "building_params"}],
+      "operator": "gte",
+      "expected_value": 1.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 3, Clause 5.3",
+      "message": "Left side setback of {actual} m is below the minimum of {expected} m.",
+      "explanation": "Side setbacks of minimum 1 m are required to allow natural light, ventilation, fire escape, and maintenance access along the property boundary.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-S006",
+      "title": "Right Side Setback",
+      "category": "Setbacks",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "right_setback", "source": "building_params"}],
+      "operator": "gte",
+      "expected_value": 1.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 3, Clause 5.3",
+      "message": "Right side setback of {actual} m is below the minimum of {expected} m.",
+      "explanation": "Side setbacks of minimum 1 m are required to allow natural light, ventilation, fire escape, and maintenance access along the property boundary.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-S007",
+      "title": "High-Rise Setback — All Sides",
+      "category": "Setbacks",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "storeys", "source": "building", "gt": 4},
+        {"field": "min_setback_all_sides", "source": "building_params"}
+      ],
+      "operator": "gte",
+      "expected_value": 6.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 5.4, Table 5",
+      "message": "High-rise building must maintain a minimum setback of {expected} m on all sides; minimum provided is {actual} m.",
+      "explanation": "High-rise residential buildings (above G+3) must maintain a minimum 6 m setback on all sides for fire engine access, ladder operations, and to prevent shadow impact on neighboring properties.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-F001",
+      "title": "Maximum FAR/FSI — Residential Zone (Plot ≤ 300 sqm)",
+      "category": "FAR / FSI",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "far", "source": "computed"},
+        {"field": "plot_area", "source": "building_params", "lte": 300.0}
+      ],
+      "operator": "lte",
+      "expected_value": 2.25,
+      "unit": "ratio",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 4, Clause 6.1",
+      "message": "FAR of {actual} exceeds the maximum permissible FAR of {expected} for residential plots up to 300 sqm.",
+      "explanation": "Floor Area Ratio (FAR) is the ratio of total built-up floor area to the plot area. Plots up to 300 sq.m are permitted a maximum FAR of 2.25, incentivizing efficient use of smaller plots.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-F002",
+      "title": "Maximum FAR/FSI — Residential Zone (Plot 300–500 sqm)",
+      "category": "FAR / FSI",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "far", "source": "computed"},
+        {"field": "plot_area", "source": "building_params", "range": [300.0, 500.0]}
+      ],
+      "operator": "lte",
+      "expected_value": 2.0,
+      "unit": "ratio",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 4, Clause 6.1",
+      "message": "FAR of {actual} exceeds the maximum permissible FAR of {expected} for residential plots of 300–500 sqm.",
+      "explanation": "Plots between 300 and 500 sq.m are permitted a maximum FAR of 2.0. The reduced FAR compared to smaller plots encourages proportionate development.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-F003",
+      "title": "Maximum FAR/FSI — Residential Zone (Plot > 500 sqm)",
+      "category": "FAR / FSI",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "far", "source": "computed"},
+        {"field": "plot_area", "source": "building_params", "gt": 500.0}
+      ],
+      "operator": "lte",
+      "expected_value": 1.75,
+      "unit": "ratio",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Table 4, Clause 6.1",
+      "message": "FAR of {actual} exceeds the maximum permissible FAR of {expected} for residential plots above 500 sqm.",
+      "explanation": "Large residential plots (above 500 sq.m) are limited to a FAR of 1.75 to prevent overdevelopment and ensure adequate open space in the urban fabric.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-C001",
+      "title": "Maximum Ground Coverage — Plot ≤ 300 sqm",
+      "category": "Ground Coverage",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "ground_coverage_pct", "source": "computed"},
+        {"field": "plot_area", "source": "building_params", "lte": 300.0}
+      ],
+      "operator": "lte",
+      "expected_value": 60.0,
+      "unit": "%",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 7.1",
+      "message": "Ground coverage of {actual}% exceeds the maximum permissible {expected}% for plots up to 300 sqm.",
+      "explanation": "Ground coverage is the percentage of plot area covered by the building footprint. A maximum of 60% is allowed for smaller plots, ensuring at least 40% open space for light, air, and rainwater percolation.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-C002",
+      "title": "Maximum Ground Coverage — Plot 300–500 sqm",
+      "category": "Ground Coverage",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "ground_coverage_pct", "source": "computed"},
+        {"field": "plot_area", "source": "building_params", "range": [300.0, 500.0]}
+      ],
+      "operator": "lte",
+      "expected_value": 55.0,
+      "unit": "%",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 7.1",
+      "message": "Ground coverage of {actual}% exceeds the maximum permissible {expected}% for plots of 300–500 sqm.",
+      "explanation": "Medium-sized plots (300–500 sq.m) are restricted to 55% ground coverage, balancing built-up area with open space requirements.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-C003",
+      "title": "Maximum Ground Coverage — Plot > 500 sqm",
+      "category": "Ground Coverage",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "ground_coverage_pct", "source": "computed"},
+        {"field": "plot_area", "source": "building_params", "gt": 500.0}
+      ],
+      "operator": "lte",
+      "expected_value": 50.0,
+      "unit": "%",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 7.1",
+      "message": "Ground coverage of {actual}% exceeds the maximum permissible {expected}% for plots above 500 sqm.",
+      "explanation": "Large plots (above 500 sq.m) are restricted to 50% ground coverage to maintain the urban green ratio and comply with environmental norms.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-R001",
+      "title": "Minimum Road Width for Residential Construction",
+      "category": "Road Access",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "road_width", "source": "building_params"}],
+      "operator": "gte",
+      "expected_value": 6.0,
+      "unit": "m",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 8.1",
+      "message": "Abutting road width of {actual} m does not meet the minimum {expected} m required for residential construction.",
+      "explanation": "A minimum abutting road width of 6 m is required for any residential building permit in BBMP jurisdiction to ensure adequate vehicular access and emergency services.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-R002",
+      "title": "Electrical Line Clearance",
+      "category": "Road Access",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "electrical_clearance", "source": "building_params"}],
+      "operator": "gte",
+      "expected_value": 1.5,
+      "unit": "m",
+      "severity": "warning",
+      "source": "BBMP Building Bye-Laws 2003, Clause 8.3; KSEB Regulations",
+      "message": "Electrical line clearance of {actual} m is below the minimum recommended {expected} m.",
+      "explanation": "Buildings must maintain a minimum 1.5 m clearance from overhead electrical lines as per KSEB safety regulations referenced by BBMP bye-laws for safety against electrical hazards.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-K001",
+      "title": "Minimum Parking Spaces",
+      "category": "Parking",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "parking_spaces_provided", "source": "building_params"},
+        {"field": "num_units", "source": "building_params"}
+      ],
+      "operator": "gte_per_unit",
+      "expected_value": 1,
+      "unit": "spaces per unit",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 9.1, Annexure A",
+      "message": "Parking provided ({actual} spaces) is insufficient for {units} dwelling units; minimum {expected} space per unit required.",
+      "explanation": "BBMP mandates a minimum of 1 parking space per dwelling unit for residential buildings to reduce on-street parking pressure.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-K002",
+      "title": "Minimum Garage/Parking Stall Width",
+      "category": "Parking",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "garage_width", "source": "building_params"}],
+      "operator": "gte",
+      "expected_value": 2.5,
+      "unit": "m",
+      "severity": "warning",
+      "source": "BBMP Building Bye-Laws 2003, Clause 9.2, Annexure A",
+      "message": "Parking stall width of {actual} m is below the minimum of {expected} m.",
+      "explanation": "Each parking stall must be a minimum of 2.5 m wide to accommodate standard passenger vehicles.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-K003",
+      "title": "Minimum Garage/Parking Stall Length",
+      "category": "Parking",
+      "applies_to": ["residential"],
+      "conditions": [{"field": "garage_length", "source": "building_params"}],
+      "operator": "gte",
+      "expected_value": 5.0,
+      "unit": "m",
+      "severity": "warning",
+      "source": "BBMP Building Bye-Laws 2003, Clause 9.2, Annexure A",
+      "message": "Parking stall length of {actual} m is below the minimum of {expected} m.",
+      "explanation": "Each parking stall must be a minimum of 5 m in length to accommodate standard passenger vehicles with door clearance.",
+      "is_placeholder": false
+    },
+    {
+      "rule_id": "BBMP-RES-X001",
+      "title": "Fire Safety — Automatic Sprinkler System (High-Rise)",
+      "category": "Fire Safety",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "storeys", "source": "building", "gt": 4},
+        {"field": "has_sprinkler_system", "source": "building_params"}
+      ],
+      "operator": "eq",
+      "expected_value": true,
+      "unit": "boolean",
+      "severity": "error",
+      "source": "BBMP Building Bye-Laws 2003, Clause 10.1; NBC 2016 Part 4",
+      "message": "High-rise residential buildings must be equipped with an automatic sprinkler system.",
+      "explanation": "PLACEHOLDER: Buildings above G+3 must have NBC-compliant automatic sprinkler systems. This rule requires detailed fire safety plan review.",
+      "is_placeholder": true
+    },
+    {
+      "rule_id": "BBMP-RES-X002",
+      "title": "Fire Escape Staircases",
+      "category": "Fire Safety",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "storeys", "source": "building", "gt": 3},
+        {"field": "stairs", "source": "elements"}
+      ],
+      "operator": "gte",
+      "expected_value": 2,
+      "unit": "staircases",
+      "severity": "warning",
+      "source": "BBMP Building Bye-Laws 2003, Clause 10.2; NBC 2016 Part 4",
+      "message": "Buildings above G+2 should have a minimum of {expected} staircases; found {actual}.",
+      "explanation": "PLACEHOLDER: Buildings above G+2 require a minimum of 2 independent staircase enclosures as fire escape routes. Detailed fire NOC required.",
+      "is_placeholder": true
+    },
+    {
+      "rule_id": "BBMP-RES-E001",
+      "title": "Rainwater Harvesting System",
+      "category": "Environmental",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "plot_area", "source": "building_params", "gte": 100.0},
+        {"field": "has_rainwater_harvesting", "source": "building_params"}
+      ],
+      "operator": "eq",
+      "expected_value": true,
+      "unit": "boolean",
+      "severity": "warning",
+      "source": "BBMP Building Bye-Laws 2003, Clause 11.1; Karnataka Government Order",
+      "message": "Rainwater harvesting system is mandatory for plots of 100 sqm and above.",
+      "explanation": "PLACEHOLDER: Karnataka Government mandates rainwater harvesting for all residential plots of 100 sq.m and above. Requires verification of RWH pit specifications.",
+      "is_placeholder": true
+    },
+    {
+      "rule_id": "BBMP-RES-E002",
+      "title": "Solar Water Heater Provision",
+      "category": "Environmental",
+      "applies_to": ["residential"],
+      "conditions": [
+        {"field": "plot_area", "source": "building_params", "gte": 60.0},
+        {"field": "has_solar_water_heater", "source": "building_params"}
+      ],
+      "operator": "eq",
+      "expected_value": true,
+      "unit": "boolean",
+      "severity": "warning",
+      "source": "BBMP Building Bye-Laws 2003, Clause 11.2; BESCOM Solar Policy",
+      "message": "Solar water heater provision is recommended for residential plots of 60 sqm and above.",
+      "explanation": "PLACEHOLDER: BBMP encourages (and in newer bye-laws mandates) solar water heaters for residential buildings on plots 60 sq.m and above to reduce energy demand.",
+      "is_placeholder": true
+    }
+  ]
+}
