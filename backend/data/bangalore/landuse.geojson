@@ -1,0 +1,114 @@
+{
+  "type": "FeatureCollection",
+  "name": "bda_land_use",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "LU_RES_01",
+      "properties": {
+        "land_use": "Residential",
+        "sub_category": "Main Residential Zone",
+        "master_plan_code": "R1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.575,
+              12.91
+            ],
+            [
+              77.61,
+              12.91
+            ],
+            [
+              77.61,
+              12.94
+            ],
+            [
+              77.575,
+              12.94
+            ],
+            [
+              77.575,
+              12.91
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU_COMM_01",
+      "properties": {
+        "land_use": "Commercial",
+        "sub_category": "Commercial Central Axis (MG Road)",
+        "master_plan_code": "C2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.585,
+              12.965
+            ],
+            [
+              77.63,
+              12.965
+            ],
+            [
+              77.63,
+              12.985
+            ],
+            [
+              77.585,
+              12.985
+            ],
+            [
+              77.585,
+              12.965
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "LU_IND_01",
+      "properties": {
+        "land_use": "Industrial",
+        "sub_category": "Hi-Tech Industrial (ITPL Whitefield)",
+        "master_plan_code": "I3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.71,
+              12.97
+            ],
+            [
+              77.76,
+              12.97
+            ],
+            [
+              77.76,
+              13.01
+            ],
+            [
+              77.71,
+              13.01
+            ],
+            [
+              77.71,
+              12.97
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

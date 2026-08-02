@@ -1,0 +1,374 @@
+{
+  "report_id": "ba9b7101-7a3c-47c4-9b6b-e947e2563056",
+  "generated_at": "2026-07-29T06:48:39.544275Z",
+  "decision_context": {
+    "evidence_bundle": {
+      "report_id": "ba9b7101-7a3c-47c4-9b6b-e947e2563056",
+      "timestamp": "2026-07-29T06:48:39.493545Z",
+      "building": {
+        "building_id": "BLD-COMM-600",
+        "building_name": "MG Road Commercial Plaza",
+        "ifc_file": "commercial_tower.ifc",
+        "building_type": "COMMERCIAL",
+        "plot_area": 500.0,
+        "builtup_area": 1800.0,
+        "height": 21.0,
+        "floors": 6,
+        "fsi": 3.6,
+        "ground_coverage": 60.0,
+        "occupancy": "Commercial"
+      },
+      "classification": {
+        "predicted_type": "Commercial",
+        "confidence": 0.94,
+        "reason": "Commercial classification confirmed from IFC building type 'COMMERCIAL' and occupancy."
+      },
+      "gis": {
+        "authority": "BBMP",
+        "ward": "Jayanagar",
+        "ward_number": 167,
+        "zone": "South Zone",
+        "road_name": "Jayanagar 4th Block 9th Main Road",
+        "road_width": 18.0,
+        "land_use": "Residential",
+        "lake_distance": 5012.66,
+        "lake_buffer": false,
+        "airport_zone": false,
+        "airport_height_limit": null,
+        "flood_risk": "Low",
+        "heritage_zone": false,
+        "dataset_manifest": [
+          {
+            "dataset_name": "BBMP Administrative Boundary",
+            "authority": "BBMP",
+            "source_url": "https://projects.datameet.org/Municipal_Spatial_Data/bangalore/",
+            "license": "Government Open Data",
+            "feature_id": "BBMP_OUTER_BOUNDS",
+            "observation": "Point (12.925, 77.5938) evaluated against BBMP municipal boundary polygon"
+          },
+          {
+            "dataset_name": "BBMP Ward Boundaries",
+            "authority": "BBMP / DataMeet",
+            "source_url": "https://projects.datameet.org/Municipal_Spatial_Data/bangalore/",
+            "license": "ODbL",
+            "feature_id": "W167",
+            "observation": "Located in Ward 167 - Jayanagar"
+          },
+          {
+            "dataset_name": "BBMP Zonal Classification",
+            "authority": "BBMP Corporation",
+            "source_url": "https://site.bbmp.gov.in/zonalclassification.html",
+            "license": "Government Open Data",
+            "feature_id": null,
+            "observation": "Mapped ward 'Jayanagar' (Ward 167) to BBMP South Zone"
+          },
+          {
+            "dataset_name": "Greater Bangalore OSM Road Network",
+            "authority": "OpenStreetMap / BBMP GIS",
+            "source_url": "https://download.geofabrik.de/asia/india.html",
+            "license": "ODbL",
+            "feature_id": "R05",
+            "observation": "Nearest public road is Jayanagar 4th Block 9th Main Road (18.0m width) located 476.25m away"
+          },
+          {
+            "dataset_name": "BDA Master Plan Land Use Classification",
+            "authority": "Bangalore Development Authority (BDA)",
+            "source_url": "https://gba.karnataka.gov.in/gisviewer/index.html",
+            "license": "Government Official Master Plan",
+            "feature_id": "LU_RES_01",
+            "observation": "Site falls within Residential Zone (R1)"
+          },
+          {
+            "dataset_name": "Bangalore Water Bodies & Storm Drains",
+            "authority": "BBMP Lake Development Authority / OSM",
+            "source_url": "https://overpass-turbo.eu/",
+            "license": "ODbL",
+            "feature_id": "L03",
+            "observation": "Nearest lake 'Agara Lake' is 5012.66m away. Lake buffer violation: False. Storm drain distance: 2555.4m"
+          },
+          {
+            "dataset_name": "Airport Height Restriction Funnel",
+            "authority": "Airports Authority of India (AAI)",
+            "source_url": "https://gba.karnataka.gov.in/gisviewer/index.html",
+            "license": "Government Statutory Restriction",
+            "feature_id": null,
+            "observation": "Site lies outside restricted airport approach funnels"
+          },
+          {
+            "dataset_name": "Bangalore Flood & Topographic Vulnerability Model",
+            "authority": "BBMP Storm Water Drain (SWD) Department",
+            "source_url": "https://site.bbmp.gov.in/",
+            "license": "Government Open Data",
+            "feature_id": null,
+            "observation": "Flood risk evaluated as 'Low' based on drain distance (2555.4m) and lake distance (5012.66m)"
+          }
+        ]
+      },
+      "compliance": {
+        "rules_checked": 5,
+        "passed": 3,
+        "failed": 1,
+        "warnings": 1,
+        "blocking": 1,
+        "score": 60.0,
+        "rule_results": [
+          {
+            "rule_id": "BBMP-FSI-001",
+            "rule_name": "Floor Space Index (FSI) Limit Check",
+            "status": "FAILED",
+            "severity": "BLOCKING",
+            "expected": "≤ 2.25",
+            "actual": "3.60",
+            "difference": "+1.35",
+            "message": "FSI of 3.60 exceeds maximum permitted limit of 2.25 by 1.35.",
+            "clause": "BBMP Bye-law 7.3.2",
+            "reference": "BBMP Building Bye-laws 2024, §7.3",
+            "recommendation": "Reduce total built-up area by 675.0 m² to achieve FSI ≤ 2.25."
+          },
+          {
+            "rule_id": "BBMP-COV-001",
+            "rule_name": "Ground Coverage Limit Check",
+            "status": "PASSED",
+            "severity": "MAJOR",
+            "expected": "≤ 60.0%",
+            "actual": "60.0%",
+            "difference": "0",
+            "message": "Ground coverage of 60.0% is within maximum permitted limit of 60.0%.",
+            "clause": "BBMP Bye-law 7.4.1",
+            "reference": "BBMP Building Bye-laws 2024, §7.4",
+            "recommendation": "No corrective action required."
+          },
+          {
+            "rule_id": "BBMP-HEIGHT-001",
+            "rule_name": "Building Height & High-Rise Threshold",
+            "status": "WARNING",
+            "severity": "MINOR",
+            "expected": "≤ 15.0 m",
+            "actual": "21.0 m",
+            "difference": "+6.0 m",
+            "message": "Building height of 21.0 m classifies as high-rise (> 15.0 m); mandatory Fire Department NOC required.",
+            "clause": "BBMP Bye-law 8.1.1",
+            "reference": "BBMP Building Bye-laws 2024, §8.1",
+            "recommendation": "Obtain Fire Force NOC and install mandatory dual staircase emergency exits."
+          },
+          {
+            "rule_id": "BBMP-LAKE-001",
+            "rule_name": "Lake Buffer Zone Protection Check",
+            "status": "PASSED",
+            "severity": "BLOCKING",
+            "expected": "Outside 30m/75m buffer",
+            "actual": "5013 m clear distance",
+            "difference": "0",
+            "message": "Site is located 5013 m from nearest water body, outside regulated buffer zone.",
+            "clause": "KMC Act 1976 / NGT Buffer Directive",
+            "reference": "BDA Revised Master Plan 2031, Zoning Regulation 4.2",
+            "recommendation": "No corrective action required."
+          },
+          {
+            "rule_id": "BBMP-AIRPORT-001",
+            "rule_name": "Airport Flight Funnel Height Restriction",
+            "status": "PASSED",
+            "severity": "MAJOR",
+            "expected": "≤ Unlimited m",
+            "actual": "21.0 m",
+            "difference": "0",
+            "message": "Building height is fully compliant with AAI airport height funnel restrictions.",
+            "clause": "AAI NOC Regulations 2020",
+            "reference": "Ministry of Civil Aviation GSR 751(E)",
+            "recommendation": "No corrective action required."
+          }
+        ]
+      },
+      "metadata": {
+        "collected_at": "2026-07-29T06:48:39.499398Z",
+        "building_collection_ms": 5.43,
+        "classification_collection_ms": 0.05,
+        "gis_collection_ms": 0.16,
+        "compliance_collection_ms": 0.19,
+        "total_collection_ms": 5.89,
+        "ifc_parser_version": "0.0.0-stub",
+        "classification_version": "0.0.0-stub",
+        "gis_engine_version": "1.0.0",
+        "compliance_engine_version": "0.0.0-stub"
+      },
+      "software_version": "0.1.0"
+    },
+    "approval": {
+      "report_id": "ba9b7101-7a3c-47c4-9b6b-e947e2563056",
+      "readiness_score": 68.4,
+      "status_category": "REJECTED",
+      "sanction_verdict": "SANCTION REFUSED — Building plan violates critical statutory bye-laws (1 blocking violation(s), score: 68.4/100).",
+      "blocking_violations_count": 1,
+      "failed_rules_count": 1,
+      "warning_rules_count": 1,
+      "weights": {
+        "compliance_subscore": 60.0,
+        "blocking_subscore": 50.0,
+        "gis_risk_subscore": 100.0,
+        "classification_subscore": 94.0,
+        "compliance_weight": 0.4,
+        "blocking_weight": 0.3,
+        "gis_risk_weight": 0.2,
+        "classification_weight": 0.1
+      },
+      "key_factors": [
+        "Contains 1 BLOCKING violation(s) preventing automatic sanction.",
+        "1 compliance rule(s) failed evaluation.",
+        "1 compliance rule warning(s) logged."
+      ]
+    },
+    "risk": {
+      "report_id": "ba9b7101-7a3c-47c4-9b6b-e947e2563056",
+      "overall_risk_score": 36.75,
+      "overall_risk_level": "CRITICAL",
+      "environmental_risk": {
+        "dimension_name": "Environmental Risk",
+        "risk_score": 0.0,
+        "risk_level": "LOW",
+        "key_factors": [
+          "No adverse environmental or hydrological constraints detected."
+        ]
+      },
+      "zoning_risk": {
+        "dimension_name": "Zoning & Spatial Risk",
+        "risk_score": 20.0,
+        "risk_level": "MEDIUM",
+        "key_factors": [
+          "Building type (COMMERCIAL) differs from masterplan zone (Residential)."
+        ]
+      },
+      "structural_risk": {
+        "dimension_name": "Structural & Dimensional Risk",
+        "risk_score": 50.0,
+        "risk_level": "HIGH",
+        "key_factors": [
+          "High-rise structure (21.0 m height > 15 m).",
+          "High FSI intensity (3.60 > 2.0)."
+        ]
+      },
+      "compliance_risk": {
+        "dimension_name": "Compliance Violation Risk",
+        "risk_score": 77.0,
+        "risk_level": "CRITICAL",
+        "key_factors": [
+          "Presence of 1 BLOCKING violation(s).",
+          "1 rule evaluation failure(s)."
+        ]
+      }
+    },
+    "recommendations": {
+      "report_id": "ba9b7101-7a3c-47c4-9b6b-e947e2563056",
+      "generated_at": "2026-07-29T06:48:39.499631Z",
+      "total_recommendations": 2,
+      "critical_count": 1,
+      "high_count": 0,
+      "medium_count": 1,
+      "low_count": 0,
+      "recommendations": [
+        {
+          "recommendation_id": "REC-BBMP-FSI-001",
+          "rule_id": "BBMP-FSI-001",
+          "rule_name": "Floor Space Index (FSI) Limit Check",
+          "clause": "BBMP Bye-law 7.3.2",
+          "explanation": "FSI of 3.60 exceeds maximum permitted limit of 2.25 by 1.35. (Deviation: +1.35).",
+          "recommended_action": "Reduce total built-up area by 675.0 m² to achieve FSI ≤ 2.25.",
+          "priority": "CRITICAL",
+          "severity": "BLOCKING",
+          "status": "FAILED",
+          "expected": "≤ 2.25",
+          "actual": "3.60"
+        },
+        {
+          "recommendation_id": "REC-BBMP-HEIGHT-001",
+          "rule_id": "BBMP-HEIGHT-001",
+          "rule_name": "Building Height & High-Rise Threshold",
+          "clause": "BBMP Bye-law 8.1.1",
+          "explanation": "Building height of 21.0 m classifies as high-rise (> 15.0 m); mandatory Fire Department NOC required. (Deviation: +6.0 m).",
+          "recommended_action": "Obtain Fire Force NOC and install mandatory dual staircase emergency exits.",
+          "priority": "MEDIUM",
+          "severity": "MINOR",
+          "status": "WARNING",
+          "expected": "≤ 15.0 m",
+          "actual": "21.0 m"
+        }
+      ]
+    },
+    "summary": {
+      "report_id": "ba9b7101-7a3c-47c4-9b6b-e947e2563056",
+      "building_name": "MG Road Commercial Plaza",
+      "building_type": "Commercial",
+      "authority": "BBMP",
+      "ward": "Jayanagar",
+      "sanction_recommendation": "REFUSE PLAN SANCTION — MANDATORY REJECTION",
+      "executive_summary_text": "EXECUTIVE SANCTION SUMMARY | Report ID: ba9b7101-7a3c-47c4-9b6b-e947e2563056\nBuilding: 'MG Road Commercial Plaza' (BLD-COMM-600) | Type: Commercial | Ward: Jayanagar (South Zone).\nOfficial Verdict: SANCTION REFUSED — Building plan violates critical statutory bye-laws (1 blocking violation(s), score: 68.4/100).\nReadiness Score: 68.4/100 | Overall Risk Level: CRITICAL (Score: 36.8/100).\nEvaluated Rules: 5 total (3 Passed, 1 Failed, 1 Warnings, 1 Blocking).\nCRITICAL NOTICE: Sanction must be refused in accordance with municipal statutory bye-laws due to blocking compliance violations or severe risk factors.",
+      "top_risk_factors": [
+        "[Compliance Violation Risk] Presence of 1 BLOCKING violation(s).",
+        "[Compliance Violation Risk] 1 rule evaluation failure(s).",
+        "[Zoning & Spatial Risk] Building type (COMMERCIAL) differs from masterplan zone (Residential).",
+        "[Structural & Dimensional Risk] High-rise structure (21.0 m height > 15 m).",
+        "[Structural & Dimensional Risk] High FSI intensity (3.60 > 2.0)."
+      ],
+      "mandatory_preconditions": [
+        "Rectify BBMP-FSI-001 (BBMP Bye-law 7.3.2): Reduce total built-up area by 675.0 m² to achieve FSI ≤ 2.25."
+      ],
+      "next_steps": [
+        "Issue formal Rejection Order detailing statutory bye-law violations.",
+        "Notify applicant of appeal procedures under Municipal Act."
+      ]
+    }
+  },
+  "qr_code_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAACsElEQVR4nO1aQWrcQBAsaRZynAU/wE8Z/8zkSfnB7IMWWsfALB2qeqQcElgHkqAGD0LIXh2m3FPVVb1eHE/WY332BvD5yr/8u8CN9+Id1d3aqA40N+gBQBvJCgC35u5CRFDFu7sPgmrFhfFM212fv3IBsKBhe/ftOl4wgMvYP9yu5X6u7a4fQxTrcge2xbf3gVuz61Ltcr7trn+A6FbQvjiW+m0Byh3j5b/vZf1rr7h3oAH4fkUx/vh47cWA6uOE2/2g1ln79QJXOmWAxyIEKja1zpoEnBpI3Uuo3mA/imZEOC4ld2c/KhkROUnEljRPGi+SiHc+50Nk3Dyf5BaoDNZUo1508PIhcnJnVOeR4yKQcERxJvMhsiaPQPq4kTiolO4B0ooCnrBGqH2INaEGAy2qFoqXEFEPj3oQxyUIxdhteRoTIho6e1EX5ggEjyTpOZUBNa4e5sFZmq6Lv0+IqId/k2Gg4kEP0oecPDLyJZrREfRQu+yQzGrCGpUQcFaKij2oEuRRcCohIp9CrTA+eQQRis03ZY2wO23JuHi0t92Uvs53qyAeydeBNVLtUqq3zXuMttSeGjnFSulMZpxuGVkj/xNdtUc+Cn5lRDR03uYckqsFwOlXM6Zy222PWqrLMwSclKfO6beVYWeyGCFxZBNDek5ELXQ78uxQgI0MSBlP6YKanEMoNqkU5NLnGRG12UmjOgI45BmyzoKMR24fMoRH9WMCmZJHphoFZSJBOAHOAVfGGsU6mix51KZ0p81HmDNVwpnhos7ZXcoa2RyohiwcPbdY0hqt/I5veeM3SdtbxApsy+P1K3Bbrvp66WzbfbZ8n2XtI8ef+Yh5Nm0/KopFMaNzTYfCtab0dTbTt7qSZqpVA4coXMbJifF+SLdiUZ/DupT9aPn8L5rfrjPV6AfldK51jHQlNAAAAABJRU5ErkJggg==",
+  "checksum_sha256": "387a0404296434aecc5d52d57d151af198b8ee7aa991b1849c6cb57936ceef6a",
+  "sections": [
+    {
+      "section_id": "SEC-01-COVER",
+      "title": "Cover Page",
+      "content_summary": "Official Municipal Plan Sanction Audit Record"
+    },
+    {
+      "section_id": "SEC-02-EXEC",
+      "title": "Executive Summary",
+      "content_summary": "REFUSE PLAN SANCTION — MANDATORY REJECTION"
+    },
+    {
+      "section_id": "SEC-03-BUILDING",
+      "title": "Building Summary",
+      "content_summary": "IFC Building: MG Road Commercial Plaza"
+    },
+    {
+      "section_id": "SEC-04-GIS",
+      "title": "GIS Context",
+      "content_summary": "Ward: Jayanagar, Zone: South Zone"
+    },
+    {
+      "section_id": "SEC-05-COMPLIANCE",
+      "title": "Compliance Summary",
+      "content_summary": "Score: 60.0/100, Rules: 5"
+    },
+    {
+      "section_id": "SEC-06-RULES",
+      "title": "Rule Evaluation Table",
+      "content_summary": "5 detailed rule items"
+    },
+    {
+      "section_id": "SEC-07-RECS",
+      "title": "Recommendations",
+      "content_summary": "2 actionable recommendations"
+    },
+    {
+      "section_id": "SEC-08-DECISION",
+      "title": "Decision Summary",
+      "content_summary": "Sanction Verdict: REJECTED"
+    },
+    {
+      "section_id": "SEC-09-APPENDIX",
+      "title": "Appendix",
+      "content_summary": "GIS Provenance Citations & Software Versions"
+    },
+    {
+      "section_id": "SEC-10-AUDIT",
+      "title": "Audit Metadata",
+      "content_summary": "SHA256: 387a0404296434ae..."
+    }
+  ]
+}

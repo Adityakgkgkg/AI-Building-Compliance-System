@@ -1,0 +1,180 @@
+{
+  "type": "FeatureCollection",
+  "name": "bbmp_lakes_and_drains",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "L01",
+      "properties": {
+        "lake_name": "Bellandur Lake",
+        "category": "Water Body",
+        "buffer_requirement_meters": 75.0,
+        "area_hectares": 360.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.66,
+              12.93
+            ],
+            [
+              77.685,
+              12.93
+            ],
+            [
+              77.685,
+              12.95
+            ],
+            [
+              77.66,
+              12.95
+            ],
+            [
+              77.66,
+              12.93
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "L02",
+      "properties": {
+        "lake_name": "Ulsoor Lake",
+        "category": "Water Body",
+        "buffer_requirement_meters": 30.0,
+        "area_hectares": 50.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.615,
+              12.98
+            ],
+            [
+              77.625,
+              12.98
+            ],
+            [
+              77.625,
+              12.99
+            ],
+            [
+              77.615,
+              12.99
+            ],
+            [
+              77.615,
+              12.98
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "L03",
+      "properties": {
+        "lake_name": "Agara Lake",
+        "category": "Water Body",
+        "buffer_requirement_meters": 30.0,
+        "area_hectares": 38.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.64,
+              12.92
+            ],
+            [
+              77.652,
+              12.92
+            ],
+            [
+              77.652,
+              12.93
+            ],
+            [
+              77.64,
+              12.93
+            ],
+            [
+              77.64,
+              12.92
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "L04",
+      "properties": {
+        "lake_name": "Sankey Tank",
+        "category": "Water Body",
+        "buffer_requirement_meters": 30.0,
+        "area_hectares": 15.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.57,
+              13.005
+            ],
+            [
+              77.578,
+              13.005
+            ],
+            [
+              77.578,
+              13.012
+            ],
+            [
+              77.57,
+              13.012
+            ],
+            [
+              77.57,
+              13.005
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D01",
+      "properties": {
+        "lake_name": "Koramangala Primary Storm Water Drain (Rajakaluve)",
+        "category": "Storm Drain",
+        "buffer_requirement_meters": 50.0
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.615,
+            12.935
+          ],
+          [
+            77.635,
+            12.938
+          ],
+          [
+            77.66,
+            12.94
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "name": "airport_height_restriction_zones",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "AP_HAL_INNER",
+      "properties": {
+        "airport_name": "HAL Old Airport Bangalore",
+        "zone_type": "Inner Approach Funnel",
+        "height_limit_meters_agl": 45.0,
+        "restriction_code": "AAI_HAL_ZONE_A"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.65,
+              12.94
+            ],
+            [
+              77.7,
+              12.94
+            ],
+            [
+              77.7,
+              12.97
+            ],
+            [
+              77.65,
+              12.97
+            ],
+            [
+              77.65,
+              12.94
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AP_YELAHANKA",
+      "properties": {
+        "airport_name": "Yelahanka Air Force Station",
+        "zone_type": "Military Air Base Funnel",
+        "height_limit_meters_agl": 30.0,
+        "restriction_code": "IAF_YEL_ZONE_M"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.59,
+              13.11
+            ],
+            [
+              77.64,
+              13.11
+            ],
+            [
+              77.64,
+              13.15
+            ],
+            [
+              77.59,
+              13.15
+            ],
+            [
+              77.59,
+              13.11
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

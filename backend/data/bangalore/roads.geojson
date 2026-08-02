@@ -1,0 +1,187 @@
+{
+  "type": "FeatureCollection",
+  "name": "bbmp_roads",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "R01",
+      "properties": {
+        "road_name": "Outer Ring Road (ORR)",
+        "road_width": 30.0,
+        "highway": "primary",
+        "lanes": 6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.58,
+            12.915
+          ],
+          [
+            77.62,
+            12.92
+          ],
+          [
+            77.69,
+            12.94
+          ],
+          [
+            77.72,
+            12.99
+          ],
+          [
+            77.65,
+            13.04
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "R02",
+      "properties": {
+        "road_name": "MG Road",
+        "road_width": 24.0,
+        "highway": "primary",
+        "lanes": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.59,
+            12.975
+          ],
+          [
+            77.62,
+            12.975
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "R03",
+      "properties": {
+        "road_name": "100 Feet Road Indiranagar",
+        "road_width": 18.0,
+        "highway": "secondary",
+        "lanes": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.64,
+            12.965
+          ],
+          [
+            77.64,
+            12.985
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "R04",
+      "properties": {
+        "road_name": "Hosur Main Road",
+        "road_width": 30.0,
+        "highway": "trunk",
+        "lanes": 6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.605,
+            12.94
+          ],
+          [
+            77.625,
+            12.91
+          ],
+          [
+            77.65,
+            12.87
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "R05",
+      "properties": {
+        "road_name": "Jayanagar 4th Block 9th Main Road",
+        "road_width": 18.0,
+        "highway": "tertiary",
+        "lanes": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.582,
+            12.92
+          ],
+          [
+            77.595,
+            12.932
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "R06",
+      "properties": {
+        "road_name": "Whitefield Main Road",
+        "road_width": 24.0,
+        "highway": "primary",
+        "lanes": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.72,
+            12.975
+          ],
+          [
+            77.755,
+            12.995
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "R07",
+      "properties": {
+        "road_name": "Bellary Road (NH 44)",
+        "road_width": 45.0,
+        "highway": "trunk",
+        "lanes": 8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.58,
+            13.0
+          ],
+          [
+            77.59,
+            13.07
+          ],
+          [
+            77.6,
+            13.14
+          ]
+        ]
+      }
+    }
+  ]
+}

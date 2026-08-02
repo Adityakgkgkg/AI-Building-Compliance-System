@@ -14,6 +14,7 @@ import { useState } from "react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/upload", label: "Upload" },
+  { href: "/gis", label: "GIS Engine" },
   { href: "/dashboard", label: "Dashboard" },
   { href: "/about", label: "About" },
 ];

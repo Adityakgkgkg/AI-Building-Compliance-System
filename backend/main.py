@@ -27,13 +27,23 @@ settings = get_settings()
 async def lifespan(app: FastAPI):
     """Application startup and shutdown lifecycle."""
     # Startup
-    print(f"🚀 Starting {settings.APP_NAME} v{settings.APP_VERSION}")
+    print(f"[STARTUP] Starting {settings.APP_NAME} v{settings.APP_VERSION}")
     init_db()
     settings.upload_path  # Ensure upload directory exists
-    print(f"📁 Upload directory: {settings.upload_path.resolve()}")
+    print(f"[STARTUP] Upload directory: {settings.upload_path.resolve()}")
+    
+    # Initialize GIS Context Engine Datasets & Indexes
+    try:
+        from app.gis.dataset_manager import DatasetManager
+        dm = DatasetManager.get_instance()
+        dm.initialize()
+        print("[GIS] Context Intelligence Engine datasets & spatial indexes initialized.")
+    except Exception as exc:
+        print(f"[GIS WARNING] Dataset initialization: {exc}")
+
     yield
     # Shutdown
-    print("👋 Shutting down...")
+    print("[SHUTDOWN] Shutting down...")
 
 
 # ── App ──────────────────────────────────────────────────────────

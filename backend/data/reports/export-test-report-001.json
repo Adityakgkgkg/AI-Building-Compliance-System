@@ -1,0 +1,258 @@
+{
+  "report_id": "export-test-report-001",
+  "generated_at": "2026-07-29T09:56:36.217878Z",
+  "decision_context": {
+    "evidence_bundle": {
+      "report_id": "export-test-report-001",
+      "timestamp": "2026-07-29T09:56:36.192332Z",
+      "building": {
+        "building_id": "bld-001",
+        "building_name": "Empire Towers",
+        "ifc_file": "test_building.ifc",
+        "building_type": "COMMERCIAL",
+        "plot_area": 1000.0,
+        "builtup_area": 2200.0,
+        "height": 18.5,
+        "floors": 5,
+        "fsi": 2.2,
+        "ground_coverage": 45.0,
+        "occupancy": "Commercial"
+      },
+      "classification": {
+        "predicted_type": "Commercial",
+        "confidence": 0.92,
+        "reason": "Commercial occupancy and floor dimensions."
+      },
+      "gis": {
+        "authority": "BBMP",
+        "ward": "Jayanagar",
+        "ward_number": 167,
+        "zone": "South Zone",
+        "road_name": "11th Main Road",
+        "road_width": 15.0,
+        "land_use": "Commercial",
+        "lake_distance": 600.0,
+        "lake_buffer": false,
+        "airport_zone": false,
+        "airport_height_limit": null,
+        "flood_risk": "Low",
+        "heritage_zone": false,
+        "dataset_manifest": [
+          {
+            "dataset_name": "BBMP Ward Boundaries",
+            "authority": "BBMP",
+            "source_url": "https://datameet.org",
+            "license": "CC-BY-SA",
+            "feature_id": "ward_167",
+            "observation": "Site located in Ward 167."
+          }
+        ]
+      },
+      "compliance": {
+        "rules_checked": 5,
+        "passed": 4,
+        "failed": 0,
+        "warnings": 1,
+        "blocking": 0,
+        "score": 90.0,
+        "rule_results": [
+          {
+            "rule_id": "BBMP-FSI-001",
+            "rule_name": "FSI Limit Check",
+            "status": "PASSED",
+            "severity": "MAJOR",
+            "expected": "≤ 2.50",
+            "actual": "2.20",
+            "difference": "0",
+            "message": "FSI within limits.",
+            "clause": "BBMP Bye-law 7.3",
+            "reference": "BBMP Bye-laws 2024",
+            "recommendation": "No action needed."
+          },
+          {
+            "rule_id": "BBMP-HEIGHT-002",
+            "rule_name": "Height Warning Check",
+            "status": "WARNING",
+            "severity": "MINOR",
+            "expected": "≤ 15.0",
+            "actual": "18.5",
+            "difference": "+3.5 m",
+            "message": "High-rise structure threshold exceeded; additional fire safety clearance advised.",
+            "clause": "BBMP Bye-law 8.1",
+            "reference": "BBMP Bye-laws 2024",
+            "recommendation": "Obtain NOC from Fire Department."
+          }
+        ]
+      },
+      "metadata": {
+        "collected_at": "2026-07-29T09:56:36.192450Z",
+        "building_collection_ms": 10.0,
+        "classification_collection_ms": 5.0,
+        "gis_collection_ms": 30.0,
+        "compliance_collection_ms": 15.0,
+        "total_collection_ms": 60.0,
+        "ifc_parser_version": "1.0.0",
+        "classification_version": "1.0.0",
+        "gis_engine_version": "1.0.0",
+        "compliance_engine_version": "1.0.0"
+      },
+      "software_version": "0.1.0"
+    },
+    "approval": {
+      "report_id": "export-test-report-001",
+      "readiness_score": 95.2,
+      "status_category": "APPROVED",
+      "sanction_verdict": "PLAN SANCTION APPROVED — Building plan complies with all statutory regulations and municipal bye-laws (score: 95.2/100).",
+      "blocking_violations_count": 0,
+      "failed_rules_count": 0,
+      "warning_rules_count": 1,
+      "weights": {
+        "compliance_subscore": 90.0,
+        "blocking_subscore": 100.0,
+        "gis_risk_subscore": 100.0,
+        "classification_subscore": 92.0,
+        "compliance_weight": 0.4,
+        "blocking_weight": 0.3,
+        "gis_risk_weight": 0.2,
+        "classification_weight": 0.1
+      },
+      "key_factors": [
+        "1 compliance rule warning(s) logged."
+      ]
+    },
+    "risk": {
+      "report_id": "export-test-report-001",
+      "overall_risk_score": 13.25,
+      "overall_risk_level": "HIGH",
+      "environmental_risk": {
+        "dimension_name": "Environmental Risk",
+        "risk_score": 0.0,
+        "risk_level": "LOW",
+        "key_factors": [
+          "No adverse environmental or hydrological constraints detected."
+        ]
+      },
+      "zoning_risk": {
+        "dimension_name": "Zoning & Spatial Risk",
+        "risk_score": 0.0,
+        "risk_level": "LOW",
+        "key_factors": [
+          "Zoning classification fully compatible with proposed land use."
+        ]
+      },
+      "structural_risk": {
+        "dimension_name": "Structural & Dimensional Risk",
+        "risk_score": 50.0,
+        "risk_level": "HIGH",
+        "key_factors": [
+          "High-rise structure (18.5 m height > 15 m).",
+          "High FSI intensity (2.20 > 2.0)."
+        ]
+      },
+      "compliance_risk": {
+        "dimension_name": "Compliance Violation Risk",
+        "risk_score": 3.0,
+        "risk_level": "LOW",
+        "key_factors": [
+          "Zero compliance failures or blocking violations."
+        ]
+      }
+    },
+    "recommendations": {
+      "report_id": "export-test-report-001",
+      "generated_at": "2026-07-29T09:56:36.195277Z",
+      "total_recommendations": 1,
+      "critical_count": 0,
+      "high_count": 0,
+      "medium_count": 1,
+      "low_count": 0,
+      "recommendations": [
+        {
+          "recommendation_id": "REC-BBMP-HEIGHT-002",
+          "rule_id": "BBMP-HEIGHT-002",
+          "rule_name": "Height Warning Check",
+          "clause": "BBMP Bye-law 8.1",
+          "explanation": "High-rise structure threshold exceeded; additional fire safety clearance advised. (Deviation: +3.5 m).",
+          "recommended_action": "Obtain NOC from Fire Department.",
+          "priority": "MEDIUM",
+          "severity": "MINOR",
+          "status": "WARNING",
+          "expected": "≤ 15.0",
+          "actual": "18.5"
+        }
+      ]
+    },
+    "summary": {
+      "report_id": "export-test-report-001",
+      "building_name": "Empire Towers",
+      "building_type": "Commercial",
+      "authority": "BBMP",
+      "ward": "Jayanagar",
+      "sanction_recommendation": "GRANT BUILDING PERMIT SANCTION",
+      "executive_summary_text": "EXECUTIVE SANCTION SUMMARY | Report ID: export-test-report-001\nBuilding: 'Empire Towers' (bld-001) | Type: Commercial | Ward: Jayanagar (South Zone).\nOfficial Verdict: PLAN SANCTION APPROVED — Building plan complies with all statutory regulations and municipal bye-laws (score: 95.2/100).\nReadiness Score: 95.2/100 | Overall Risk Level: HIGH (Score: 13.2/100).\nEvaluated Rules: 5 total (4 Passed, 0 Failed, 1 Warnings, 0 Blocking).",
+      "top_risk_factors": [
+        "[Structural & Dimensional Risk] High-rise structure (18.5 m height > 15 m).",
+        "[Structural & Dimensional Risk] High FSI intensity (2.20 > 2.0)."
+      ],
+      "mandatory_preconditions": [],
+      "next_steps": [
+        "Issue digital Sanction Certificate and approved plan blueprint.",
+        "Archive evidence bundle in municipal GIS registry."
+      ]
+    }
+  },
+  "qr_code_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAACwklEQVR4nO1aUarbMBAcRYJ82jfoUeSblXcz5Si5gfwZkNkys8prPwoJLaVeeMII44igyc7OzspJhhfjuLxaAXwt+Ze/C6xzztYAjIUzgNwrUHVbR7wAVDPj3FEAs2Ydx4rckc2I92TbfWdJShv2lFbGqwC8sfZYgT2VE2733SU1MzR1kIe17Fv5o2851ZJjJai08hrg9f/28rdLTLJg9oF9yx3Wb55HWGyccLsvxgW4pZQAlP07mca5XpVQR2JynW27L4f56KSZdSpeNhsSQB/R1BvG0sN6NK/ObHKkeh4QkTXrlbV1aZ474E0dVD/W2YCITExrNsnWnqxrzr2IiAYYESqbi9vCJ4qXYAZkXTYxzYyRUlrB2WiN6AIqQ7Y2FrJPHs8BGp8rm+IhMpcCN0JUb7hhkD4EZd1Q+lDZGCkybboF9hcxEWESjx0EmQYsjdbOoZ1pu5f3lmQZBpGtPr61sli+b2Vp13vK9+10232vwmZm0KyqmXouxXBHFLArH79WIoleluIxdvFYh3nOME8biAJPXOoyIqp3cwvEzUu3ByVinpzErEftmTKCxo4P7sZFv4isq4oOBUF8k0FVqdUcMkbwxkHl9TNe1qfli4eoa7YZHc8dm0oeM496pTeY55A6eOyE45QL6es6G9ghs+qghjd6+jRkPTIKgts5r7aZZpUY1aoHRNSpci5ublbN0U0ShswjKI/YgyunssqQt7QBte7icifFq8eKsifsG/bt4PH+FvBMFW68P62dV6WsehT2vE7DjZwaPTyNRFTP0DlPfXMGGl2EG4mAMbrM2rpv+b5drZWlFTlwnYTfguYRnuHwqjR0vPDZMQWMkY/bY71h+SiofBvL2qQie9btvhMjsCpR8ex5FOmEjBYjuB2VMki31ZVnGQYvuAERwd3OzxdGi/+3Iej7o/T1L5rfjjPF6Ae8MpLCkXB6/QAAAABJRU5ErkJggg==",
+  "checksum_sha256": "b579c0e40af42b6672ada2082a47aa3cb72044ec99520346846732ad15e4af96",
+  "sections": [
+    {
+      "section_id": "SEC-01-COVER",
+      "title": "Cover Page",
+      "content_summary": "Official Municipal Plan Sanction Audit Record"
+    },
+    {
+      "section_id": "SEC-02-EXEC",
+      "title": "Executive Summary",
+      "content_summary": "GRANT BUILDING PERMIT SANCTION"
+    },
+    {
+      "section_id": "SEC-03-BUILDING",
+      "title": "Building Summary",
+      "content_summary": "IFC Building: Empire Towers"
+    },
+    {
+      "section_id": "SEC-04-GIS",
+      "title": "GIS Context",
+      "content_summary": "Ward: Jayanagar, Zone: South Zone"
+    },
+    {
+      "section_id": "SEC-05-COMPLIANCE",
+      "title": "Compliance Summary",
+      "content_summary": "Score: 90.0/100, Rules: 5"
+    },
+    {
+      "section_id": "SEC-06-RULES",
+      "title": "Rule Evaluation Table",
+      "content_summary": "2 detailed rule items"
+    },
+    {
+      "section_id": "SEC-07-RECS",
+      "title": "Recommendations",
+      "content_summary": "1 actionable recommendations"
+    },
+    {
+      "section_id": "SEC-08-DECISION",
+      "title": "Decision Summary",
+      "content_summary": "Sanction Verdict: APPROVED"
+    },
+    {
+      "section_id": "SEC-09-APPENDIX",
+      "title": "Appendix",
+      "content_summary": "GIS Provenance Citations & Software Versions"
+    },
+    {
+      "section_id": "SEC-10-AUDIT",
+      "title": "Audit Metadata",
+      "content_summary": "SHA256: b579c0e40af42b66..."
+    }
+  ]
+}

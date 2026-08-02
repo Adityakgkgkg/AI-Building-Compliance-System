@@ -1,0 +1,370 @@
+{
+  "report_id": "207bbf29-fc50-4086-8d86-1b031d1f58f8",
+  "generated_at": "2026-07-29T06:49:20.571946Z",
+  "decision_context": {
+    "evidence_bundle": {
+      "report_id": "207bbf29-fc50-4086-8d86-1b031d1f58f8",
+      "timestamp": "2026-07-29T06:49:20.127142Z",
+      "building": {
+        "building_id": "2bb286$Af9iuq951kXeLke",
+        "building_name": "Grethes hus",
+        "ifc_file": "Grethes-hus-bok-2.ifc",
+        "building_type": "RESIDENTIAL",
+        "plot_area": 500.0,
+        "builtup_area": 900.0,
+        "height": 3653.5,
+        "floors": 2,
+        "fsi": 1.8,
+        "ground_coverage": 90.0,
+        "occupancy": "Residential"
+      },
+      "classification": {
+        "predicted_type": "Apartment",
+        "confidence": 0.96,
+        "reason": "Multi-story residential apartment classification (2 floors, 3653.5 m height)."
+      },
+      "gis": {
+        "authority": "BBMP",
+        "ward": "Jayanagar",
+        "ward_number": 167,
+        "zone": "South Zone",
+        "road_name": "Jayanagar 4th Block 9th Main Road",
+        "road_width": 18.0,
+        "land_use": "Residential",
+        "lake_distance": 5012.66,
+        "lake_buffer": false,
+        "airport_zone": false,
+        "airport_height_limit": null,
+        "flood_risk": "Low",
+        "heritage_zone": false,
+        "dataset_manifest": [
+          {
+            "dataset_name": "BBMP Administrative Boundary",
+            "authority": "BBMP",
+            "source_url": "https://projects.datameet.org/Municipal_Spatial_Data/bangalore/",
+            "license": "Government Open Data",
+            "feature_id": "BBMP_OUTER_BOUNDS",
+            "observation": "Point (12.925, 77.5938) evaluated against BBMP municipal boundary polygon"
+          },
+          {
+            "dataset_name": "BBMP Ward Boundaries",
+            "authority": "BBMP / DataMeet",
+            "source_url": "https://projects.datameet.org/Municipal_Spatial_Data/bangalore/",
+            "license": "ODbL",
+            "feature_id": "W167",
+            "observation": "Located in Ward 167 - Jayanagar"
+          },
+          {
+            "dataset_name": "BBMP Zonal Classification",
+            "authority": "BBMP Corporation",
+            "source_url": "https://site.bbmp.gov.in/zonalclassification.html",
+            "license": "Government Open Data",
+            "feature_id": null,
+            "observation": "Mapped ward 'Jayanagar' (Ward 167) to BBMP South Zone"
+          },
+          {
+            "dataset_name": "Greater Bangalore OSM Road Network",
+            "authority": "OpenStreetMap / BBMP GIS",
+            "source_url": "https://download.geofabrik.de/asia/india.html",
+            "license": "ODbL",
+            "feature_id": "R05",
+            "observation": "Nearest public road is Jayanagar 4th Block 9th Main Road (18.0m width) located 476.25m away"
+          },
+          {
+            "dataset_name": "BDA Master Plan Land Use Classification",
+            "authority": "Bangalore Development Authority (BDA)",
+            "source_url": "https://gba.karnataka.gov.in/gisviewer/index.html",
+            "license": "Government Official Master Plan",
+            "feature_id": "LU_RES_01",
+            "observation": "Site falls within Residential Zone (R1)"
+          },
+          {
+            "dataset_name": "Bangalore Water Bodies & Storm Drains",
+            "authority": "BBMP Lake Development Authority / OSM",
+            "source_url": "https://overpass-turbo.eu/",
+            "license": "ODbL",
+            "feature_id": "L03",
+            "observation": "Nearest lake 'Agara Lake' is 5012.66m away. Lake buffer violation: False. Storm drain distance: 2555.4m"
+          },
+          {
+            "dataset_name": "Airport Height Restriction Funnel",
+            "authority": "Airports Authority of India (AAI)",
+            "source_url": "https://gba.karnataka.gov.in/gisviewer/index.html",
+            "license": "Government Statutory Restriction",
+            "feature_id": null,
+            "observation": "Site lies outside restricted airport approach funnels"
+          },
+          {
+            "dataset_name": "Bangalore Flood & Topographic Vulnerability Model",
+            "authority": "BBMP Storm Water Drain (SWD) Department",
+            "source_url": "https://site.bbmp.gov.in/",
+            "license": "Government Open Data",
+            "feature_id": null,
+            "observation": "Flood risk evaluated as 'Low' based on drain distance (2555.4m) and lake distance (5012.66m)"
+          }
+        ]
+      },
+      "compliance": {
+        "rules_checked": 5,
+        "passed": 3,
+        "failed": 1,
+        "warnings": 1,
+        "blocking": 0,
+        "score": 60.0,
+        "rule_results": [
+          {
+            "rule_id": "BBMP-FSI-001",
+            "rule_name": "Floor Space Index (FSI) Limit Check",
+            "status": "PASSED",
+            "severity": "MAJOR",
+            "expected": "≤ 2.25",
+            "actual": "1.80",
+            "difference": "0",
+            "message": "FSI of 1.80 complies with BBMP Bye-law 7.3.2 for road width 18.0 m.",
+            "clause": "BBMP Bye-law 7.3.2",
+            "reference": "BBMP Building Bye-laws 2024, §7.3",
+            "recommendation": "No corrective action required."
+          },
+          {
+            "rule_id": "BBMP-COV-001",
+            "rule_name": "Ground Coverage Limit Check",
+            "status": "FAILED",
+            "severity": "MAJOR",
+            "expected": "≤ 60.0%",
+            "actual": "90.0%",
+            "difference": "+30.0%",
+            "message": "Ground coverage of 90.0% exceeds maximum limit of 60.0%.",
+            "clause": "BBMP Bye-law 7.4.1",
+            "reference": "BBMP Building Bye-laws 2024, §7.4",
+            "recommendation": "Reduce ground floor footprint coverage by 30.0% of plot area."
+          },
+          {
+            "rule_id": "BBMP-HEIGHT-001",
+            "rule_name": "Building Height & High-Rise Threshold",
+            "status": "WARNING",
+            "severity": "MINOR",
+            "expected": "≤ 15.0 m",
+            "actual": "3653.5 m",
+            "difference": "+3638.5 m",
+            "message": "Building height of 3653.5 m classifies as high-rise (> 15.0 m); mandatory Fire Department NOC required.",
+            "clause": "BBMP Bye-law 8.1.1",
+            "reference": "BBMP Building Bye-laws 2024, §8.1",
+            "recommendation": "Obtain Fire Force NOC and install mandatory dual staircase emergency exits."
+          },
+          {
+            "rule_id": "BBMP-LAKE-001",
+            "rule_name": "Lake Buffer Zone Protection Check",
+            "status": "PASSED",
+            "severity": "BLOCKING",
+            "expected": "Outside 30m/75m buffer",
+            "actual": "5013 m clear distance",
+            "difference": "0",
+            "message": "Site is located 5013 m from nearest water body, outside regulated buffer zone.",
+            "clause": "KMC Act 1976 / NGT Buffer Directive",
+            "reference": "BDA Revised Master Plan 2031, Zoning Regulation 4.2",
+            "recommendation": "No corrective action required."
+          },
+          {
+            "rule_id": "BBMP-AIRPORT-001",
+            "rule_name": "Airport Flight Funnel Height Restriction",
+            "status": "PASSED",
+            "severity": "MAJOR",
+            "expected": "≤ Unlimited m",
+            "actual": "3653.5 m",
+            "difference": "0",
+            "message": "Building height is fully compliant with AAI airport height funnel restrictions.",
+            "clause": "AAI NOC Regulations 2020",
+            "reference": "Ministry of Civil Aviation GSR 751(E)",
+            "recommendation": "No corrective action required."
+          }
+        ]
+      },
+      "metadata": {
+        "collected_at": "2026-07-29T06:49:20.501497Z",
+        "building_collection_ms": 373.66,
+        "classification_collection_ms": 0.06,
+        "gis_collection_ms": 0.15,
+        "compliance_collection_ms": 0.45,
+        "total_collection_ms": 374.37,
+        "ifc_parser_version": "0.0.0-stub",
+        "classification_version": "0.0.0-stub",
+        "gis_engine_version": "1.0.0",
+        "compliance_engine_version": "0.0.0-stub"
+      },
+      "software_version": "0.1.0"
+    },
+    "approval": {
+      "report_id": "207bbf29-fc50-4086-8d86-1b031d1f58f8",
+      "readiness_score": 83.6,
+      "status_category": "CONDITIONAL_APPROVAL",
+      "sanction_verdict": "CONDITIONAL SANCTION RECOMMENDED — Plan meets primary statutory standards but requires fulfillment of minor compliance conditions prior to permit issuance (score: 83.6/100).",
+      "blocking_violations_count": 0,
+      "failed_rules_count": 1,
+      "warning_rules_count": 1,
+      "weights": {
+        "compliance_subscore": 60.0,
+        "blocking_subscore": 100.0,
+        "gis_risk_subscore": 100.0,
+        "classification_subscore": 96.0,
+        "compliance_weight": 0.4,
+        "blocking_weight": 0.3,
+        "gis_risk_weight": 0.2,
+        "classification_weight": 0.1
+      },
+      "key_factors": [
+        "1 compliance rule(s) failed evaluation.",
+        "1 compliance rule warning(s) logged."
+      ]
+    },
+    "risk": {
+      "report_id": "207bbf29-fc50-4086-8d86-1b031d1f58f8",
+      "overall_risk_score": 18.0,
+      "overall_risk_level": "HIGH",
+      "environmental_risk": {
+        "dimension_name": "Environmental Risk",
+        "risk_score": 0.0,
+        "risk_level": "LOW",
+        "key_factors": [
+          "No adverse environmental or hydrological constraints detected."
+        ]
+      },
+      "zoning_risk": {
+        "dimension_name": "Zoning & Spatial Risk",
+        "risk_score": 0.0,
+        "risk_level": "LOW",
+        "key_factors": [
+          "Zoning classification fully compatible with proposed land use."
+        ]
+      },
+      "structural_risk": {
+        "dimension_name": "Structural & Dimensional Risk",
+        "risk_score": 45.0,
+        "risk_level": "HIGH",
+        "key_factors": [
+          "High-rise structure (3653.5 m height > 15 m).",
+          "High ground coverage (90.0% > 60%)."
+        ]
+      },
+      "compliance_risk": {
+        "dimension_name": "Compliance Violation Risk",
+        "risk_score": 27.0,
+        "risk_level": "MEDIUM",
+        "key_factors": [
+          "1 rule evaluation failure(s)."
+        ]
+      }
+    },
+    "recommendations": {
+      "report_id": "207bbf29-fc50-4086-8d86-1b031d1f58f8",
+      "generated_at": "2026-07-29T06:49:20.501912Z",
+      "total_recommendations": 2,
+      "critical_count": 0,
+      "high_count": 1,
+      "medium_count": 1,
+      "low_count": 0,
+      "recommendations": [
+        {
+          "recommendation_id": "REC-BBMP-COV-001",
+          "rule_id": "BBMP-COV-001",
+          "rule_name": "Ground Coverage Limit Check",
+          "clause": "BBMP Bye-law 7.4.1",
+          "explanation": "Ground coverage of 90.0% exceeds maximum limit of 60.0%. (Deviation: +30.0%).",
+          "recommended_action": "Reduce ground floor footprint coverage by 30.0% of plot area.",
+          "priority": "HIGH",
+          "severity": "MAJOR",
+          "status": "FAILED",
+          "expected": "≤ 60.0%",
+          "actual": "90.0%"
+        },
+        {
+          "recommendation_id": "REC-BBMP-HEIGHT-001",
+          "rule_id": "BBMP-HEIGHT-001",
+          "rule_name": "Building Height & High-Rise Threshold",
+          "clause": "BBMP Bye-law 8.1.1",
+          "explanation": "Building height of 3653.5 m classifies as high-rise (> 15.0 m); mandatory Fire Department NOC required. (Deviation: +3638.5 m).",
+          "recommended_action": "Obtain Fire Force NOC and install mandatory dual staircase emergency exits.",
+          "priority": "MEDIUM",
+          "severity": "MINOR",
+          "status": "WARNING",
+          "expected": "≤ 15.0 m",
+          "actual": "3653.5 m"
+        }
+      ]
+    },
+    "summary": {
+      "report_id": "207bbf29-fc50-4086-8d86-1b031d1f58f8",
+      "building_name": "Grethes hus",
+      "building_type": "Apartment",
+      "authority": "BBMP",
+      "ward": "Jayanagar",
+      "sanction_recommendation": "GRANT CONDITIONAL SANCTION (Pending Compliance Fulfillment)",
+      "executive_summary_text": "EXECUTIVE SANCTION SUMMARY | Report ID: 207bbf29-fc50-4086-8d86-1b031d1f58f8\nBuilding: 'Grethes hus' (2bb286$Af9iuq951kXeLke) | Type: Apartment | Ward: Jayanagar (South Zone).\nOfficial Verdict: CONDITIONAL SANCTION RECOMMENDED — Plan meets primary statutory standards but requires fulfillment of minor compliance conditions prior to permit issuance (score: 83.6/100).\nReadiness Score: 83.6/100 | Overall Risk Level: HIGH (Score: 18.0/100).\nEvaluated Rules: 5 total (3 Passed, 1 Failed, 1 Warnings, 0 Blocking).\nNOTICE: Plan meets structural safety criteria. Conditional permit may be issued upon submission of rectified drawings addressing minor non-blocking violations.",
+      "top_risk_factors": [
+        "[Compliance Violation Risk] 1 rule evaluation failure(s).",
+        "[Structural & Dimensional Risk] High-rise structure (3653.5 m height > 15 m).",
+        "[Structural & Dimensional Risk] High ground coverage (90.0% > 60%)."
+      ],
+      "mandatory_preconditions": [
+        "Rectify BBMP-COV-001 (BBMP Bye-law 7.4.1): Reduce ground floor footprint coverage by 30.0% of plot area."
+      ],
+      "next_steps": [
+        "Issue Conditional Sanction Notice to applicant.",
+        "Require resubmission of rectified IFC model within 30 days."
+      ]
+    }
+  },
+  "qr_code_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAACvElEQVR4nO1aUYrcMAx9Hgf204E9wB7FuVmZI/UGzo2UzwEHlSfZ00IL01JKI1gRZr2efFj7pKcneZPihZ23V28An6/827/LkVJKC3Zgx7GllM51X7CfK/hF2qIBAJWqqlmbCrLSsmpHVan8VWq/0nFvv/dKShuODUUfKxwpuB1pueBxX9gyFzUBue8bKso9y5qKLNc77u0PXtlV6pm+9HJ/pG0B+n88y19jpPxRU5HzvS19z7KeHy0LUBQHAjIDAGSpPz+ghWOGhUCQBHCu6O+SPr5Wrms/iF3ACgs1LJyxe2lG5g2lqerYD+hRL3THIs33qi088MJFHZhHRVG0lzb9qoZRy1Z8e8yoU0Ya1YI7gkK1MBAM6FE25eNaKKuikLo9rYhdOI+UjvRn+LG2Vu5wTXUX0KPGSBtRN9KnF80CIhUSo+afBIXPWNCjkNobZDN3hDFG8aAGGanPOTAiRsXrkdemxvSZ/BATo2b8pkp+Iz9kokaYuBMRI3EJBJdAP6gFEKCQmqGyFXKRoOp51Ee3zp14Hil9efIbLI/ybCVi6rpKqWByztdqCeVFNqSuU4s0IwGPwM5RA8lBxbg9oEdgHjHk5oCreVq5EIrnkVjrbSlDLYTvndHQqxHzSEZ5nQ9Yj8ydoFGXSXeeTTOPYKhZhYrokVrTStkzaLwNtUCkAnoko7mbQ4YZbAg63bpZGcWb4LFitkX7ubI5sllQu9pxX5qa3p6drNNd9bRyvKJhBJej3utZB2EtOaesRuMxuY5GeUBHxoxLxxVSSK4Tfj6nQBSuQgnhs7uQ9Ug8a5zGx043jRcTo9u440M907aY2Ea5vwmvYtNqlzFXO+4r0ynhLNLcqrd7nlM9rEd9yga1sYPXo8B5pOwpXA51owWfDgWdnMDu+FhPrdR2OjWao4D1KH3+F80v7UoYfQP8LqDCsC5GCgAAAABJRU5ErkJggg==",
+  "checksum_sha256": "2e28816b67e01be60eade1fea24726d34f7f50b3c645572cb8a6cfda6b265626",
+  "sections": [
+    {
+      "section_id": "SEC-01-COVER",
+      "title": "Cover Page",
+      "content_summary": "Official Municipal Plan Sanction Audit Record"
+    },
+    {
+      "section_id": "SEC-02-EXEC",
+      "title": "Executive Summary",
+      "content_summary": "GRANT CONDITIONAL SANCTION (Pending Compliance Fulfillment)"
+    },
+    {
+      "section_id": "SEC-03-BUILDING",
+      "title": "Building Summary",
+      "content_summary": "IFC Building: Grethes hus"
+    },
+    {
+      "section_id": "SEC-04-GIS",
+      "title": "GIS Context",
+      "content_summary": "Ward: Jayanagar, Zone: South Zone"
+    },
+    {
+      "section_id": "SEC-05-COMPLIANCE",
+      "title": "Compliance Summary",
+      "content_summary": "Score: 60.0/100, Rules: 5"
+    },
+    {
+      "section_id": "SEC-06-RULES",
+      "title": "Rule Evaluation Table",
+      "content_summary": "5 detailed rule items"
+    },
+    {
+      "section_id": "SEC-07-RECS",
+      "title": "Recommendations",
+      "content_summary": "2 actionable recommendations"
+    },
+    {
+      "section_id": "SEC-08-DECISION",
+      "title": "Decision Summary",
+      "content_summary": "Sanction Verdict: CONDITIONAL_APPROVAL"
+    },
+    {
+      "section_id": "SEC-09-APPENDIX",
+      "title": "Appendix",
+      "content_summary": "GIS Provenance Citations & Software Versions"
+    },
+    {
+      "section_id": "SEC-10-AUDIT",
+      "title": "Audit Metadata",
+      "content_summary": "SHA256: 2e28816b67e01be6..."
+    }
+  ]
+}

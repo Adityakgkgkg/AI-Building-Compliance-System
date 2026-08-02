@@ -72,10 +72,35 @@ export async function uploadFile(
   return response.data;
 }
 
-// ── Future API Functions (Sprint 2+) ────────────────────────────
-// export async function getBuildingInfo(id: string): Promise<BuildingInfo> { ... }
-// export async function checkCompliance(id: string): Promise<ComplianceResult> { ... }
-// export async function getGISContext(id: string): Promise<GISContext> { ... }
-// export async function getRecommendations(id: string): Promise<AIRecommendation[]> { ... }
+/**
+ * Perform automated end-to-end compliance analysis on an IFC building plan.
+ */
+export async function analyzeBuildingPlan(
+  file: File,
+  lat: number = 12.9250,
+  lon: number = 77.5938,
+  onProgress?: (progress: number) => void
+) {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const response = await api.post("/analyze", formData, {
+    params: { lat, lon },
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    onUploadProgress: (progressEvent) => {
+      if (progressEvent.total && onProgress) {
+        const percent = Math.round(
+          (progressEvent.loaded * 100) / progressEvent.total
+        );
+        onProgress(percent);
+      }
+    },
+  });
+
+  return response.data;
+}
 
 export default api;
+

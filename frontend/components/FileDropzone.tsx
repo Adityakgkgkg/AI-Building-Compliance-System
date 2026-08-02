@@ -70,11 +70,33 @@ export default function FileDropzone() {
     [handleFile]
   );
 
+  const [analyzingStage, setAnalyzingStage] = useState<string | null>(null);
+
   const handleUpload = useCallback(async () => {
     if (selectedFile) {
-      await upload(selectedFile);
+      try {
+        setValidationError(null);
+        setAnalyzingStage("Uploading & Executing Automated Analysis...");
+        const { analyzeBuildingPlan } = await import("@/services/api");
+        const res = await analyzeBuildingPlan(selectedFile, 12.9250, 77.5938);
+        setAnalyzingStage("Completed! Redirecting to Dashboard...");
+        
+        // Automatic redirect to Dashboard
+        setTimeout(() => {
+          if (res.dashboard_url) {
+            window.location.href = res.dashboard_url;
+          } else {
+            window.location.href = "/dashboard";
+          }
+        }, 1000);
+      } catch (err: any) {
+        const msg = err.response?.data?.detail || err.message || "Automated analysis failed.";
+        setValidationError(typeof msg === 'string' ? msg : JSON.stringify(msg));
+        setAnalyzingStage(null);
+      }
     }
-  }, [selectedFile, upload]);
+  }, [selectedFile]);
+
 
   const handleReset = useCallback(() => {
     setSelectedFile(null);

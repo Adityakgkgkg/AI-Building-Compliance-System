@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compliance Audit Report — a579d30f-1f6e-4412-ba68-c4e5e9cef1c5</title>
+  <style>
+    :root {
+      --bg: #0a0e1a;
+      --card-bg: #111827;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: rgba(148,163,184,0.15);
+      --accent: #8b5cf6;
+      --cyan: #06b6d4;
+      --green: #10b981;
+      --red: #ef4444;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff; }
+    h2 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--cyan); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .banner {
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .banner.APPROVED { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+    .banner.REJECTED { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+    .banner.CONDITIONAL_APPROVAL, .banner.REQUIRES_MANUAL_REVIEW { background: rgba(245,158,11,0.15); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .field-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .field-value { font-size: 0.95rem; font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.85rem; }
+    th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: rgba(255,255,255,0.04); color: var(--muted); font-size: 0.75rem; text-transform: uppercase; }
+    .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; }
+    .badge.PASSED { background: rgba(16,185,129,0.2); color: var(--green); }
+    .badge.FAILED { background: rgba(239,68,68,0.2); color: var(--red); }
+    .badge.WARNING { background: rgba(245,158,11,0.2); color: var(--amber); }
+    .badge.CRITICAL { background: rgba(239,68,68,0.2); color: var(--red); }
+    .badge.HIGH { background: rgba(249,115,22,0.2); color: #f97316; }
+    .badge.MEDIUM { background: rgba(245,158,11,0.2); color: var(--amber); }
+    .badge.LOW { background: rgba(148,163,184,0.2); color: var(--muted); }
+    .qr-container { display: flex; align-items: center; gap: 1.5rem; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; }
+    .qr-container img { width: 100px; height: 100px; border-radius: 6px; }
+    footer { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Cover / Header Card -->
+    <div class="card">
+      <h1>MUNICIPAL PLAN SANCTION AUDIT REPORT</h1>
+      <p class="subtitle">BBMP Urban Development & Plan Sanctioning Authority | Report ID: a579d30f-1f6e-4412-ba68-c4e5e9cef1c5</p>
+      
+      <div class="banner REJECTED">
+        VERDICT: REJECTED — SANCTION REFUSED — Building plan violates critical statutory bye-laws (1 blocking violation(s), score: 68.4/100).
+      </div>
+
+      <div class="grid">
+        <div><div class="field-label">Building Name</div><div class="field-value">MG Road Commercial Plaza</div></div>
+        <div><div class="field-label">Readiness Score</div><div class="field-value">68.4 / 100</div></div>
+        <div><div class="field-label">Ward / Zone</div><div class="field-value">Jayanagar (South Zone)</div></div>
+        <div><div class="field-label">Overall Risk</div><div class="field-value">CRITICAL</div></div>
+      </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="card">
+      <h2>1. Executive Summary</h2>
+      <p><strong>Sanction Recommendation:</strong> REFUSE PLAN SANCTION — MANDATORY REJECTION</p>
+      <p style="margin-top: 0.5rem; color: var(--muted);">EXECUTIVE SANCTION SUMMARY | Report ID: a579d30f-1f6e-4412-ba68-c4e5e9cef1c5
+Building: 'MG Road Commercial Plaza' (BLD-COMM-600) | Type: Commercial | Ward: Jayanagar (South Zone).
+Official Verdict: SANCTION REFUSED — Building plan violates critical statutory bye-laws (1 blocking violation(s), score: 68.4/100).
+Readiness Score: 68.4/100 | Overall Risk Level: CRITICAL (Score: 36.8/100).
+Evaluated Rules: 5 total (3 Passed, 1 Failed, 1 Warnings, 1 Blocking).
+CRITICAL NOTICE: Sanction must be refused in accordance with municipal statutory bye-laws due to blocking compliance violations or severe risk factors.</p>
+    </div>
+
+    <!-- Building Summary -->
+    <div class="card">
+      <h2>2. Building Summary</h2>
+      <div class="grid">
+        <div><div class="field-label">IFC File</div><div class="field-value">commercial_tower.ifc</div></div>
+        <div><div class="field-label">Building Type</div><div class="field-value">COMMERCIAL</div></div>
+        <div><div class="field-label">Plot Area</div><div class="field-value">500.0 m²</div></div>
+        <div><div class="field-label">Built-up Area</div><div class="field-value">1800.0 m²</div></div>
+        <div><div class="field-label">Height / Floors</div><div class="field-value">21.0 m / 6 Floors</div></div>
+        <div><div class="field-label">FSI / Coverage</div><div class="field-value">FSI 3.6 | 60.0%</div></div>
+        <div><div class="field-label">AI Classification</div><div class="field-value">Commercial (94.0%)</div></div>
+      </div>
+    </div>
+
+    <!-- GIS Context -->
+    <div class="card">
+      <h2>3. GIS Context & Spatial Intelligence</h2>
+      <div class="grid">
+        <div><div class="field-label">Authority</div><div class="field-value">BBMP</div></div>
+        <div><div class="field-label">Masterplan Land Use</div><div class="field-value">Residential</div></div>
+        <div><div class="field-label">Nearest Road</div><div class="field-value">Jayanagar 4th Block 9th Main Road (18.0 m)</div></div>
+        <div><div class="field-label">Lake Distance</div><div class="field-value">5012.66 m (Buffer: False)</div></div>
+        <div><div class="field-label">Airport Funnel</div><div class="field-value">In Zone: False | Limit: None</div></div>
+        <div><div class="field-label">Flood Risk</div><div class="field-value">Low</div></div>
+      </div>
+    </div>
+
+    <!-- Compliance Summary -->
+    <div class="card">
+      <h2>4. Compliance Summary</h2>
+      <div class="grid">
+        <div><div class="field-label">Compliance Score</div><div class="field-value">60.0%</div></div>
+        <div><div class="field-label">Rules Evaluated</div><div class="field-value">5</div></div>
+        <div><div class="field-label">Passed / Failed</div><div class="field-value">3 Passed | 1 Failed</div></div>
+        <div><div class="field-label">Blocking Violations</div><div class="field-value">1</div></div>
+      </div>
+    </div>
+
+    <!-- Rule Evaluation Table -->
+    <div class="card">
+      <h2>5. Rule Evaluation Table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rule ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Severity</th>
+            <th>Clause</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><code>BBMP-FSI-001</code></td>
+            <td>Floor Space Index (FSI) Limit Check</td>
+            <td><span class="badge FAILED">FAILED</span></td>
+            <td>BLOCKING</td>
+            <td>BBMP Bye-law 7.3.2</td>
+          </tr>
+          
+          <tr>
+            <td><code>BBMP-COV-001</code></td>
+            <td>Ground Coverage Limit Check</td>
+            <td><span class="badge PASSED">PASSED</span></td>
+            <td>MAJOR</td>
+            <td>BBMP Bye-law 7.4.1</td>
+          </tr>
+          
+          <tr>
+            <td><code>BBMP-HEIGHT-001</code></td>
+            <td>Building Height & High-Rise Threshold</td>
+            <td><span class="badge WARNING">WARNING</span></td>
+            <td>MINOR</td>
+            <td>BBMP Bye-law 8.1.1</td>
+          </tr>
+          
+          <tr>
+            <td><code>BBMP-LAKE-001</code></td>
+            <td>Lake Buffer Zone Protection Check</td>
+            <td><span class="badge PASSED">PASSED</span></td>
+            <td>BLOCKING</td>
+            <td>KMC Act 1976 / NGT Buffer Directive</td>
+          </tr>
+          
+          <tr>
+            <td><code>BBMP-AIRPORT-001</code></td>
+            <td>Airport Flight Funnel Height Restriction</td>
+            <td><span class="badge PASSED">PASSED</span></td>
+            <td>MAJOR</td>
+            <td>AAI NOC Regulations 2020</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="card">
+      <h2>6. Prioritized Recommendations</h2>
+      
+        
+          <div style="margin-bottom: 0.8rem;">
+            <span class="badge CRITICAL">CRITICAL</span>
+            <strong>BBMP-FSI-001 (BBMP Bye-law 7.3.2):</strong> Reduce total built-up area by 675.0 m² to achieve FSI ≤ 2.25.
+            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem;">FSI of 3.60 exceeds maximum permitted limit of 2.25 by 1.35. (Deviation: +1.35).</div>
+          </div>
+        
+          <div style="margin-bottom: 0.8rem;">
+            <span class="badge MEDIUM">MEDIUM</span>
+            <strong>BBMP-HEIGHT-001 (BBMP Bye-law 8.1.1):</strong> Obtain Fire Force NOC and install mandatory dual staircase emergency exits.
+            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem;">Building height of 21.0 m classifies as high-rise (> 15.0 m); mandatory Fire Department NOC required. (Deviation: +6.0 m).</div>
+          </div>
+        
+      
+    </div>
+
+    <!-- Decision Summary & Risk -->
+    <div class="card">
+      <h2>7. Decision Summary & Officer Next Steps</h2>
+      <p style="margin-bottom: 0.5rem;"><strong>Top Risk Factors:</strong></p>
+      <ul style="margin-left: 1.2rem; color: var(--muted); margin-bottom: 1rem;">
+        
+          <li>[Compliance Violation Risk] Presence of 1 BLOCKING violation(s).</li>
+        
+          <li>[Compliance Violation Risk] 1 rule evaluation failure(s).</li>
+        
+          <li>[Zoning & Spatial Risk] Building type (COMMERCIAL) differs from masterplan zone (Residential).</li>
+        
+          <li>[Structural & Dimensional Risk] High-rise structure (21.0 m height > 15 m).</li>
+        
+          <li>[Structural & Dimensional Risk] High FSI intensity (3.60 > 2.0).</li>
+        
+      </ul>
+
+      <p style="margin-bottom: 0.5rem;"><strong>Recommended Next Steps:</strong></p>
+      <ol style="margin-left: 1.2rem; color: var(--muted);">
+        
+          <li>Issue formal Rejection Order detailing statutory bye-law violations.</li>
+        
+          <li>Notify applicant of appeal procedures under Municipal Act.</li>
+        
+      </ol>
+    </div>
+
+    <!-- Appendix (Dataset Provenance) -->
+    <div class="card">
+      <h2>8. Appendix — GIS Dataset Provenance</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dataset</th>
+            <th>Authority</th>
+            <th>License</th>
+            <th>Observation</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>BBMP Administrative Boundary</td>
+            <td>BBMP</td>
+            <td>Government Open Data</td>
+            <td>Point (12.925, 77.5938) evaluated against BBMP municipal boundary polygon</td>
+          </tr>
+          
+          <tr>
+            <td>BBMP Ward Boundaries</td>
+            <td>BBMP / DataMeet</td>
+            <td>ODbL</td>
+            <td>Located in Ward 167 - Jayanagar</td>
+          </tr>
+          
+          <tr>
+            <td>BBMP Zonal Classification</td>
+            <td>BBMP Corporation</td>
+            <td>Government Open Data</td>
+            <td>Mapped ward 'Jayanagar' (Ward 167) to BBMP South Zone</td>
+          </tr>
+          
+          <tr>
+            <td>Greater Bangalore OSM Road Network</td>
+            <td>OpenStreetMap / BBMP GIS</td>
+            <td>ODbL</td>
+            <td>Nearest public road is Jayanagar 4th Block 9th Main Road (18.0m width) located 476.25m away</td>
+          </tr>
+          
+          <tr>
+            <td>BDA Master Plan Land Use Classification</td>
+            <td>Bangalore Development Authority (BDA)</td>
+            <td>Government Official Master Plan</td>
+            <td>Site falls within Residential Zone (R1)</td>
+          </tr>
+          
+          <tr>
+            <td>Bangalore Water Bodies & Storm Drains</td>
+            <td>BBMP Lake Development Authority / OSM</td>
+            <td>ODbL</td>
+            <td>Nearest lake 'Agara Lake' is 5012.66m away. Lake buffer violation: False. Storm drain distance: 2555.4m</td>
+          </tr>
+          
+          <tr>
+            <td>Airport Height Restriction Funnel</td>
+            <td>Airports Authority of India (AAI)</td>
+            <td>Government Statutory Restriction</td>
+            <td>Site lies outside restricted airport approach funnels</td>
+          </tr>
+          
+          <tr>
+            <td>Bangalore Flood & Topographic Vulnerability Model</td>
+            <td>BBMP Storm Water Drain (SWD) Department</td>
+            <td>Government Open Data</td>
+            <td>Flood risk evaluated as 'Low' based on drain distance (2555.4m) and lake distance (5012.66m)</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Audit Metadata & QR -->
+    <div class="card">
+      <h2>9. Audit Metadata & Verification</h2>
+      <div class="qr-container">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAACyklEQVR4nO1aQYojMQyU44YcHdgH5CkO7AP2SWF+5jwlP3AfBxxqqZIzyWEgs7C7tGBM0+M4fZBSUqmkngR7sW67V0+YfT/yL38XQ+c9o+VezerTYdW2jngAVIChdzu2IV8ycDtU39C1jZn7lUdSOtl6ygLLSnt8uaZlg+a+WMvH7v3Q9/2wjGp2+dkPqfRle+bu/sSjpdgw3JKNZFht/Pjvtuz+2iNAIw+sjL09WkZLx8YgLBgbNPfF2pldUkqkuy7A1vOynvP1vKynW0rpsDlzXy746jWjzTtAAuzkQADR2NvAMuREXSGngGbF/eJ5PI/AZBlWc+elsyom94/hKqwRF4DGiwcYeL0KI6qIkFEHWd7rUKRNOVQYhB6T8TzqFHVWCFPulnsd4r1h9JHAReU6YzYVmK4McC/GC+hRU+DZKFSqYu82Ck90GBGj5gApcSi5zWGS9mbsBYw6owst32khO168FH4BMTLydpX9D0dMgRczj+Ci9M4JBIvsLf0Qk+saoaFsmNQNER3Lk3N4QF03hM6ssFPdmQuGkHnUKXum/Gb4sVdysDQ8CYgRvJUQTNKoUBB6kY2p60BdKlpTBt0JwQ9jepTv0zmHBrM/Io2HjLo++c3nkJ47Wfph6tWQ3YTdL6ogSDO4OyGjrgsIbfBMcaa+L6RmaMoXymxvlMxrq8iBNB4yj6qXVHqhmQOkuvV9OI+W+WcgHXsqlmEGS6Xv+y9yxQj5/mgpb0ofy1dOHZf1hOvJTwLOVM0bPfURDDnvkkyjBlJE5DkDJB6e8whB+6POu+s6hwzSDF5hY9ajem8iiJSPF7ImeH5F82g33/HZhZuj2vM1vR/f+M7iICrcmrlfZIbubYX6o+JDY80c4tWj3WO7pmVOS+ymN2LLeiLvbdTcV3kEDYJcbxfF3sc+KNf12b160zc041KdCudR+v4vmk/XljD6DSV7ngLot+OVAAAAAElFTkSuQmCC" alt="Verification QR Code">
+        <div>
+          <p><strong>SHA256 Payload Hash:</strong></p>
+          <p style="font-family: monospace; font-size: 0.8rem; color: var(--cyan); word-break: break-all;">53f08d717ed36d59ea28a650dc9735fdee8df7a0bcf3a9df2a0679cd9e0360ad</p>
+          <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem;">
+            Generated: 2026-07-29 06:48:18.629117+00:00 | Engine Version: 0.1.0
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      BBMP Municipal Building Compliance Reporting & Decision Support Engine © 2026
+    </footer>
+
+  </div>
+</body>
+</html>
